@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .wrapper {
+            height: 40%;
+            width: 50%;
+            background-color: beige;
+        }
+
+        .title {
+            width: 100%;
+            background-color: red;
+            color: #dddddd;
+            text-align: center;
+        }
+        .form-box {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 10px;
+            margin-left: 60px;
+        }
+        .form-row,form-checkbox {
+            margin-top: 6px;
+            margin-bottom: 6px;
+        }
+        .form-row input{
+            display: inline-block;
+        }
+        .form-row label{
+            padding-right: 10px;
+            margin-left:  10px;
+        }
+        .form-checkbox label{
+            padding: 4px 10px;
+            color: orange;
+        }
+        .form-checkbox input {
+            margin-right: 4px;
+        }
+
+    </style>
+</head>
+<body>
+<form>
+    <div  class="wrapper">
+        <div class="title">
+            <h1 >SỞ THÍCH CỦA BẠN</h1>
+        </div>
+        <div class="form-box">
+            <div class="form-row">
+                <label style="color: blue;">Họ và tên</label>
+                <input type="text" name="yourname" style="min-width: 220px;">
+            </div>
+            <div class="form-row">
+                <label style="color: blue;" class="email">Email</label>
+                <input type="text" name="email" style="min-width: 180px;margin-left: 24px">
+            </div>
+            <div class="check-box">
+                <div class="form-checkbox">
+                    <label style="color: blue;padding-right: 10px">Sở thích</label>
+                    <label><input name="hobby" type="checkbox" value="sport">Thể thao</label>
+                    <label><input name="hobby" style="margin-left: 5px;" type="checkbox" value="music">Âm nhạc</label>
+                    <label><input name="hobby" style="margin-left: 12px;" type="checkbox" value="book">Đọc sách</label>
+                </div>
+                <div class="form-checkbox" style="padding-left: 77px;">
+                    <label><input name="hobby" type="checkbox" value="websurfing">Lướt web</label>
+                    <label><input name="hobby" type="checkbox" value="game">Chơi game</label>
+                    <label><input name="hobby" type="checkbox" value="film">Điện ảnh</label>
+                </div>
+                <div class="form-checkbox" style="padding-left: 77px;">
+                    <label><input name="hobby" type="checkbox" value="tourist">Du lịch</label>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="button" style="text-align: center">
+            <input type="submit" value="Gửi thông tin">
+            <input type="reset" value="Nhập lại">
+        </div>
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Caculator simple</title>
+</head>
+<style>
+    button{
+        width: 150px;
+        height: 30px;
+        margin-top: 30px;
+    }
+</style>
+<body>
+<h1>Caculator</h1>
+<input type="text" id="left" style="width: 250px">
+<input type="text" id="right" style="width: 250px"><br>
+<button type="button" onclick="Addition()" value="Addition">Addition(+)</button>
+<button type="button" onclick="Subtraction()" value="Subtraction">Subtraction(-)</button>
+<button type="button" onclick="Multiplication()" value="Multiplication">Multiplication(X)</button>
+<button type="button" onclick="Division()" value="Division">Division(/)</button>
+<script>
+    function Addition()
+    {
+        const l= Number.parseInt(left.value);
+        const r= Number.parseInt(right.value);
+        document.write("result: "+ (l+r));
+    }
+    function Subtraction()
+    {
+        const l= Number.parseInt(left.value);
+        const r= Number.parseInt(right.value);
+        document.write("result: "+ (l-r));
+    }
+    function Multiplication()
+    {
+        const l= Number.parseInt(left.value);
+        const r= Number.parseInt(right.value);
+        document.write("result: "+ (l*r));
+    }
+    function Division()
+    {
+        const l= Number.parseInt(left.value);
+        const r= Number.parseInt(right.value);
+        document.write("result: "+ parseFloat(l/r));
+    }
+
+</script>
+</body>
+</html>

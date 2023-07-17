@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>calculator_expand</title>
+</head>
+<style>
+    .container{
+        display: inline-grid;
+        margin: 40px;
+        border: 30px solid whitesmoke;
+    }
+    .caculator{
+        display: flex;
+    }
+    button{
+        width: 50px;
+        height: 50px;
+        background-color: #dddddd;
+        box-shadow: -5px -5px 12px #ffffff,
+                     5px  5px 12px rgba(0,0,0,.16);
+        border: none;
+        border-radius: 50%;
+        margin: 3px;
+    }
+    input{
+        height: 100px;
+        background-color: #ecf0f3;
+        box-shadow: inset -5px -5px #dddddd,
+                           5px 5px 12px rgba(0,0,0,.16);
+    }
+</style>
+<body>
+<div class="container">
+    <input type="text" placeholder="0" id="output-screen" style="font-size: 20px">
+    <div class="caculator">
+        <button onclick="">Rad</button>
+        <button onclick="">...</button>
+        <button onclick="">x!</button>
+        <button onclick="">(</button>
+        <button onclick="">)</button>
+        <button onclick="display('%')">%</button>
+        <button onclick="clear()" style="background-color: red" >AC</button>
+    </div>
+    <div class="caculator">
+        <button onclick="">Inv</button>
+        <button onclick="">sin</button>
+        <button onclick="">ln</button>
+        <button style="background-color: white" onclick="display('7')">7</button>
+        <button style="background-color: white" onclick="display('8')">8</button>
+        <button style="background-color: white" onclick="display('9')">9</button>
+        <button onclick="display('/')">&divide;</button>
+    </div>
+    <div class="caculator">
+        <button onclick="">&pi;</button>
+        <button onclick="">cos</button>
+        <button onclick="">log</button>
+        <button style="background-color: white" onclick="display('4')">4</button>
+        <button style="background-color: white" onclick="display('5')">5</button>
+        <button style="background-color: white" onclick="display('6')">6</button>
+        <button  onclick="display('*')">&times;</button>
+    </div>
+    <div class="caculator">
+        <button onclick="">e</button>
+        <button onclick="">tan</button>
+        <button onclick="">&radic;</button>
+        <button style="background-color: white" onclick="display('1')">1</button>
+        <button style="background-color: white" onclick="display('2')">2</button>
+        <button style="background-color: white" onclick="display('3')">3</button>
+        <button  onclick="display('-')">-</button>
+    </div>
+    <div class="caculator">
+        <button onclick="">Ans</button>
+        <button onclick="">EXP</button>
+        <button onclick=""><span>X</span><sup>y</sup></button>
+        <button style="background-color: white" onclick="display('0')">0</button>
+        <button style="background-color: white" onclick="display('.')">.</button>
+        <button style="background-color: dodgerblue" onclick="Calculate()">=</button>
+        <button onclick="display('+')">+</button>
+    </div>
+</div>
+<script>
+    let outputscreen=document.getElementById("output-screen");
+    function display(num)
+    {
+        outputscreen.value+=num;
+    }
+    function Calculate()
+    {
+        try{
+            outputscreen.value=eval(outputscreen.value);
+        }
+        catch(err)
+        {
+            alert("Invalid")
+        }
+
+
+    }
+    function clear()
+    {
+       outputscreen.value="";
+      //  outputscreen.value=outputscreen.value.slice(0,-1);
+    }
+</script>
+</body>
+</html>

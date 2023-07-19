@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let tong =0;
+  let kwh =parseInt(prompt("Enter kwh :"));
+  if(kwh>100)
+  {
+    tong =(kwh-100)*2.014+50*1.678;
+  }else{
+    tong =50*1.678;
+  }
+  document.write(" tổng tiền điện phải trả là: "+parseFloat(tong*10/100) )
+</script>
+
+</body>
+</html>

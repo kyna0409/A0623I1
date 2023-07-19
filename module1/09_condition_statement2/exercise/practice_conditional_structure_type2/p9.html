@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let a = parseInt(prompt("Enter a :"));
+  let b = parseInt(prompt("Enter b :"));
+  let c = parseInt(prompt("Enter c :"));
+  if(a>0 && b>0 && c>0)
+  {
+    if(a+b>c && b+c>a && a+c>b)
+    {
+      document.write(" a,b,c là ba cạnh của một tam giác");
+    }else{
+      document.write("a,b,c không phải là ba cạnh của một tam giác ");
+    }
+
+  }else{
+    document.write(" a,b,c không hợp lệ khi là ba cạnh của một tam giác");
+  }
+</script>
+</body>
+</html>

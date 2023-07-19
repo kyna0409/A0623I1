@@ -40,7 +40,7 @@
         <button onclick="">(</button>
         <button onclick="">)</button>
         <button onclick="display('%')">%</button>
-        <button onclick="clear()" style="background-color: red" >AC</button>
+        <button onclick="clearresult()" style="background-color: red" >AC</button>
     </div>
     <div class="caculator">
         <button onclick="">Inv</button>
@@ -97,11 +97,12 @@
 
 
     }
-    function clear()
+    function clearresult()
     {
-       outputscreen.value="";
-      //  outputscreen.value=outputscreen.value.slice(0,-1);
+      outputscreen.value="";
+     // outputscreen.value=outputscreen.value.slice(0,-1);
     }
+
 </script>
 </body>
 </html>

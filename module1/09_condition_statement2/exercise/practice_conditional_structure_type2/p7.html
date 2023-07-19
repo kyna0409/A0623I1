@@ -1,0 +1,25 @@
+<!DOCTYPE html>let a = parseInt(prompt("Enter a :"));
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+  let b = parseInt(prompt("Enter b :"));
+  let c = parseInt(prompt("Enter c :"));
+  let d = b*b-4*a*c;
+  if(d<0)
+  {
+    document.write("phương trình vô nghiệm");
+  }else if(d==0)
+  {
+    document.write("phương trình có nghiệm kép là :"+parseFloat(-b/(2*a)))
+  }else
+  {
+    document.write("phương trình có hai nghiệm lần lượt là :"+"x1 = "+parseFloat((-b+Math.sqrt(d))/(2*a))+"   x2 = "+parseFloat((-b+Math.sqrt(d))/(2*a)))
+  }
+</script>
+</body>
+</html>

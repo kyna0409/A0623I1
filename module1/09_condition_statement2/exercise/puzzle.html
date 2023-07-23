@@ -14,22 +14,142 @@
 </head>
 <body>
 <div class="puzzle">
-    <img id="img1" src="../img/324093632_196222082948312_8384560339947761736_n%20(1).jpg" onclick="change_img1()" >
-    <img id="img2" src="../img/324093632_196222082948312_8384560339947761736_n.jpg" onclick="change_img2()">
-    <img id="img3" src="../img/324093632_196222082948312_8384560339947761736_n%20(2).jpg" onclick="change_img3()">
+    <img id="img1" src="" onclick="change_img1()" >
+    <img id="img2" src="" onclick="change_img2()">
+    <img id="img3" src="" onclick="change_img3()">
 </div>
 <script>
+
+    let src1_1 = "../img/a1.jpg";
+    let src1_2 = "../img/a4.jpg";
+
+    let src2_1 = "../img/a2.jpg";
+    let src2_2 = "../img/a5.jpg";
+
+    let src3_1 = "../img/a3.jpg";
+    let src3_2 = "../img/a6.jpg";
+
+    let check1;
+    let check2;
+    let check3;
+
+    function randomIntFromInterval(min, max) { // min and max included
+        return Math.floor(Math.random() * (max - min + 1) + min)
+    }
+    function randomImg() {
+        let position;
+        for (let i=1; i<=3;i++){
+            switch (i){
+                case 1:
+                    position = randomIntFromInterval(1,2);
+                    switch (position){
+                        case 1:
+                            img1.src = src1_1;
+                            check1=1;
+                            break;
+                        case 2:
+                            img1.src = src1_2;
+                            check1=2;
+                            break;
+                    }
+                    break;
+                case 2:
+                    position = randomIntFromInterval(1,2);
+                    switch (position){
+                        case 1:
+                            img2.src = src2_1;
+                            check2=1;
+                            break;
+                        case 2:
+                            img2.src = src2_2;
+                            check2=2;
+                            break;
+                    }
+                    break;
+                case 3:
+                    position = randomIntFromInterval(1,2);
+                    switch (position){
+                        case 1:
+                            img3.src = src3_1;
+                            check3=1;
+                            break;
+                        case 2:
+                            img3.src = src3_2;
+                            check3=2;
+                            break;
+                    }
+                    break;
+
+            }
+        }
+       // check();
+    }
+    randomImg();
+
     function change_img1()
     {
-        img1.src = '../img/82718f19fc27e244022086374ede02f0.jpg';
+        let curSrc = document.getElementById("img1").getAttribute('src');
+        switch (curSrc){
+            case src1_1 :
+                img1.src = src1_2;
+                check1=2;
+                break;
+            case src1_2 :
+                img1.src = src1_1;
+                check1=1;
+                break;
+        }
+        check();
     }
+
     function change_img2()
     {
-        img2.src = '../img/82718f19fc27e244022086374ede02f0 (1).jpg';
+        let curSrc = document.getElementById("img2").getAttribute('src');
+        switch (curSrc){
+            case src2_1 :
+                img2.src = src2_2;
+                check2=2;
+                break;
+            case src2_2 :
+                img2.src = src2_1;
+                check2=1;
+                break;
+        }
+
+        check();
     }
+
     function change_img3()
     {
-        img3.src = '../img/82718f19fc27e244022086374ede02f0 (3).jpg';
+        let curSrc = document.getElementById("img3").getAttribute('src');
+        switch (curSrc){
+            case src3_1 :
+                img3.src = src3_2;
+                check3=2;
+                break;
+            case src3_2 :
+                img3.src = src3_1;
+                check3=1;
+                break;
+        }
+        check()
+    }
+
+    function check() {
+        // console.log(check1)
+        // console.log(check2)
+        // console.log(check3)
+        var images = document.querySelectorAll('img');
+
+        if (check1 === check2 && check2 === check3){
+            images.forEach(function(img) {
+                img.style.boxShadow = 'red 9px 9px 9px';
+            });
+        }else {
+            images.forEach(function(img) {
+                img.style.boxShadow = 'black 9px 9px 9px';
+            });
+        }
     }
 </script>
 </body>

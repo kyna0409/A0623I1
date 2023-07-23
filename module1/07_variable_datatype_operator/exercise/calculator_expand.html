@@ -49,7 +49,7 @@
         <button style="background-color: white" onclick="display('7')">7</button>
         <button style="background-color: white" onclick="display('8')">8</button>
         <button style="background-color: white" onclick="display('9')">9</button>
-        <button onclick="display('/')">&divide;</button>
+        <button onclick="display('&divide;')">&divide;</button>
     </div>
     <div class="caculator">
         <button onclick="">&pi;</button>
@@ -58,7 +58,7 @@
         <button style="background-color: white" onclick="display('4')">4</button>
         <button style="background-color: white" onclick="display('5')">5</button>
         <button style="background-color: white" onclick="display('6')">6</button>
-        <button  onclick="display('*')">&times;</button>
+        <button  onclick="display('X')">&times;</button>
     </div>
     <div class="caculator">
         <button onclick="">e</button>
@@ -87,15 +87,18 @@
     }
     function Calculate()
     {
+        var expression = document.getElementById("output-screen").value;
+        document.getElementById("output-screen").value = calculateExpression(expression);
+    }
+    function calculateExpression(expression)
+    {
         try{
-            outputscreen.value=eval(outputscreen.value);
+            return eval(expression.replace(/X/g, '*').replace(/÷/g, '/').replace(/\^/g, '**').replace(/%/g, '/100')).toString();
         }
         catch(err)
         {
             alert("Invalid")
         }
-
-
     }
     function clearresult()
     {

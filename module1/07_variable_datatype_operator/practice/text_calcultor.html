@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html>
+        <html lang="en">
+        <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Máy tính đơn giản</title>
+    <style>
+        .container{
+            background-color: rgb(229, 238, 235);
+            width: 500px;
+            height: 305px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-top: 100px;
+        }
+        .title{
+            text-align: center;
+            font-size: 18px;
+            padding: 5px;
+            background-color: rgb(74, 188, 188);
+            color:white ;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            height: 30px;
+        }
+        .results{
+            display: flex;
+            justify-content: stretch;
+            height: 50px;
+            border: 1px solid black;
+            margin-left: 10px;
+            margin-right: 10px;
+
+        }
+        .result{
+            flex-grow: 1;
+            margin: 2px;
+            text-align: right ;
+            font-size: 30px;
+
+        }
+        .buttons{
+            display: flex;
+            flex-grow: 1;
+            justify-content: space-between;
+            margin-left: 15px;
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+        .button{
+            text-align: center;
+            height: 32px;
+            width: 62px;
+            border: 1px solid black;
+            font-weight: 400;
+        }
+        .button:hover{
+            background-color: rgba(223, 229, 229, 0.807);
+        }
+        .fullbutton{
+            margin-bottom: 15px;
+        }
+        body{
+            background-color: #ffffcc;
+        }
+    </style>
+</head>
+<body>
+<div class="container" >
+    <div class="title" >CALCULATOR</div>
+    <div class="results" >
+        <input type="text" placeholder="0" id="resultInput" class="result">
+    </div>
+    <div class="fullbutton">
+        <div class="buttons" >
+            <button style="background-color: #c0c0c0;" type="button" class="button" onclick="item1()">Rad</button>
+            <button style="background-color: #c0c0c0;" type="button" class="button" onclick="item2()">Deg</button>
+            <button style="background-color: #c0c0c0;" type="button" class="button" onclick="item3()">x!</button>
+            <button style="background-color: #c0c0c0;" type="button" class="button" onclick="item4()">(</button>
+            <button style="background-color: #c0c0c0;" type="button" class="button" onclick="item5()">)</button>
+            <button style="background-color: #c0c0c0;" type="button" class="button" onclick="item6()">%</button>
+            <button style="background-color: red;" type="button" class="button" onclick="item7()">AC</button>
+        </div>
+        <div class="buttons" >
+            <button style="background-color: #c0c0c0;" type="button" class="button" onclick="item8()">lnv</button>
+            <button style="background-color: #c0c0c0;" type="button" class="button" onclick="item9()">sin</button>
+            <button style="background-color: #c0c0c0;" type="button" class="button" onclick="item10()">ln</button>
+            <button type="button" class="button" onclick="item11()">7</button>
+            <button type="button" class="button" onclick="item12()">8</button>
+            <button type="button" class="button" onclick="item13()">9</button>
+            <button style="background-color: #c0c0c0;" type="button" class="button" onclick="item14()">÷</button>
+        </div>
+        <div class="buttons" >
+            <button style="background-color: #c0c0c0;" type="button" class="button" onclick="item15()">π</button>
+            <button style="background-color: #c0c0c0;" type="button" class="button" onclick="item16()">cos</button>
+            <button style="background-color: #c0c0c0;" type="button" class="button" onclick="item17()">log</button>
+            <button type="button" class="button" onclick="item18()">4</button>
+            <button type="button" class="button" onclick="item19()">5</button>
+            <button type="button" class="button" onclick="item20()">6</button>
+            <button style="background-color: #c0c0c0;" type="button" class="button" onclick="item21()">x</button>
+        </div>
+        <div class="buttons" >
+            <button style="background-color: #c0c0c0;" type="button" class="button" onclick="item22()">e</button>
+            <button style="background-color: #c0c0c0;" type="button" class="button" onclick="item23()">tan</button>
+            <button style="background-color: #c0c0c0;" type="button" class="button" onclick="item24()">√</button>
+            <button type="button" class="button" onclick="item25()">1</button>
+            <button type="button" class="button" onclick="item26()">2</button>
+            <button type="button" class="button" onclick="item27()">3</button>
+            <button style="background-color: #c0c0c0;" type="button" class="button" onclick="item28()">-</button>
+        </div>
+        <div class="buttons" >
+            <button style="background-color: #c0c0c0;" type="button" class="button" onclick="item29()">Ans</button>
+            <button style="background-color: #c0c0c0;" type="button" class="button" onclick="item30()">EXP</button>
+            <button style="background-color: #c0c0c0;" type="button" class="button" onclick="item31()">x<sup>y</sup></button>
+            <button type="button" class="button" onclick="item32()">0</button>
+            <button type="button" class="button" onclick="item33()">.</button>
+            <button style="background-color: blue;color: white;" type="button" class="button" onclick="item34()">=</button>
+            <button style="background-color: #c0c0c0;" type="button" class="button" onclick="item35()">+</button>
+        </div>
+    </div>
+</div>
+<script>
+    function item7() {
+        document.getElementById("resultInput").value = "";
+    }
+    function item11() {
+        document.getElementById("resultInput").value += "7";
+    }
+    function item12() {
+        document.getElementById("resultInput").value += "8";
+    }
+    function item13() {
+        document.getElementById("resultInput").value += "9";
+    }
+    function item14() {
+        document.getElementById("resultInput").value += "÷";
+    }
+    function item18() {
+        document.getElementById("resultInput").value += "4";
+    }
+    function item19() {
+        document.getElementById("resultInput").value += "5";
+    }
+    function item20() {
+        document.getElementById("resultInput").value += "6";
+    }
+    function item21() {
+        document.getElementById("resultInput").value += "x";
+    }
+    function item25() {
+        document.getElementById("resultInput").value += "1";
+    }
+    function item26() {
+        document.getElementById("resultInput").value += "2";
+    }
+    function item27() {
+        document.getElementById("resultInput").value += "3";
+    }
+    function item28() {
+        document.getElementById("resultInput").value += "-";
+    }
+    function item32() {
+        document.getElementById("resultInput").value += "0";
+    }
+    function item33() {
+        document.getElementById("resultInput").value += ".";
+    }
+    function item34() {
+        var expression = document.getElementById("resultInput").value;
+        document.getElementById("resultInput").value = calculateExpression(expression);
+    }
+
+    function calculateExpression(expression) {
+        try {
+            return eval(expression.replace(/x/g, '*').replace(/÷/g, '/').replace(/\^/g, '**').replace(/%/g, '/100')).toString() || "Lỗi";
+        } catch (error) {
+            return "Lỗi";
+        }
+    }
+
+    function item35() {
+        document.getElementById("resultInput").value += "+";
+    }
+</script>
+</body>
+</html>

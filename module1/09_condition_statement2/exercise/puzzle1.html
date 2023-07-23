@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            width: 50%;
+            text-align: center;
+            margin: 0 auto;
+            background-image: linear-gradient(0deg,pink,yellow);
+        }
+        img {
+            box-shadow: 4px 4px 9px red;
+        }
+    </style>
+</head>
+<body>
+<div class="section">
+    <img src="../img/a1.jpg" name="1" height="230" width="660"/>
+    <img src="../img/a2.jpg" name="2" height="231" width="660"/>
+    <img src="../img/a3.jpg" name="3" height="251" width="660"/>
+</div>
+<script>
+    const section = document.querySelector(".section");
+    section.addEventListener("click", e => {
+        let res = "";
+        const ele = e.target;
+        let numRandom = Math.floor(Math.random() * 12) + 1;
+
+        while (ele.name == numRandom) {
+            numRandom = Math.floor(Math.random() * 12) + 1;
+        }
+
+        ele.src = `../img/a${numRandom}.jpg`;
+        ele.name = numRandom;
+
+        const lsImg = section.querySelectorAll("img");
+        for (let i = 0; i < lsImg.length; i++) {
+            res += lsImg[i].name;
+        }
+
+        if (res === "123" || res === "456" || res === "789" || res === "101112" ) {
+            lsImg.forEach(element => {
+                element.style.boxShadow = "4px 4px 9px red";
+            })
+
+            setTimeout(function () {
+                alert("Congratulations! You are excellent");
+            }, 0);
+        } else {
+            lsImg.forEach(element => {
+                element.style.boxShadow = "2px 3px 3px black";
+            })
+        }
+    })
+</script>
+</body>
+</html>

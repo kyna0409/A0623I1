@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let numbers = parseInt(prompt("Enter a number :"));
+    let count = 0;
+    function check_snt(n)
+    {
+        for(let i=2; i<=Math.sqrt(n); i++)
+        {
+            if(n%i === 0) return false
+        }
+        return true;
+    }
+    let i=2;
+   while( count<numbers)
+   {
+       if(check_snt(i))
+       {
+           document.write(i+"<br>")
+           count++;
+       }
+       i++;
+   }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 100px;
+            display: block;
+            background-image: linear-gradient(0deg,red,yellow);
+            background-repeat: no-repeat;
+
+        }
+        button{
+            background-image: linear-gradient(0deg,red,yellow);
+        }
+        div{
+            width: 500px;
+            height: 500px;
+
+        }
+    </style>
+</head>
+<body>
+<marquee >bạn nhập đúng tên tôi, bạn sẽ thấy điều bất ngờ mà tôi dành cho bạn</marquee>
+<input id="text" value="my name">
+<button style="background-color: red" onclick="heart()">MY HEART</button>
+<marquee id="out" style="font-family: 'Bodoni MT Black';color:red;font-size: 100px"> </marquee>
+<div id="heart"></div>
+<script>
+    let div=document.getElementById("heart");
+    function heart()
+    {
+        if(document.getElementById("text").value==="HÒA CUTE")
+        {
+            for(let i=1; i<=6; i++)
+            {
+                for(let j=1; j<=7; j++)
+                {
+                    if((i===1 && (j===2||j===3||j===5||j===6))||i===2||i===3||(i===4&&(j>=2&&j<=6))||(i===5&&(j>=3&&j<=5))||(i===6&&j===4))
+                    {
+                       // div.value="*"+"&ensp;&ensp;&ensp;&ensp;";
+                       document.write("*"+"&ensp;&ensp;&ensp;&ensp;")
+                    }
+                    else{
+                       // div.value="$"+"&ensp;&ensp;&ensp;&ensp;";
+                        document.write("$"+"&ensp;&ensp;&ensp;&ensp;");
+
+                    }
+                }
+                document.write("<br><br>")
+            }
+        }else
+        {
+            document.getElementById("out").innerHTML="lucky again";
+            setTimeout(function ()
+            {
+                alert("bạn đã nhập sai tên của tôi mời bạn nhập lại")
+                location.reload();
+            },500);
+        }
+    }
+
+
+</script>
+</body>
+</html>

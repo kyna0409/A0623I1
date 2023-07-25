@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+
+  function fibonacci(n)
+  {
+    if(n===0 || n===1) return 1;
+    else return fibonacci(n-2)+ fibonacci(n-1);
+  }
+  let n =parseInt(prompt("nhap vao n:"));
+
+    for(let i=0; i<=n; i++)
+    {
+      document.write(fibonacci(i)+" ");
+    }
+</script>
+</body>
+</html>

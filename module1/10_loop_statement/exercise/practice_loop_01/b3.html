@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let count=0;
+  function fibonacci(n)
+  {
+    if(n===0 || n===1) return 1;
+    else return fibonacci(n-2)+ fibonacci(n-1);
+  }
+ for(let i=1;i<20;i++)
+ {
+   if(fibonacci(i)%5===0)
+   {
+     document.write("số đầu tiên trong dãy fibonacci chia hết cho 5 là:"+fibonacci(i));
+     break;
+   }
+ }
+
+</script>
+</body>
+</html>

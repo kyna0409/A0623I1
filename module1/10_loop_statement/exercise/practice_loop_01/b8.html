@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="but_play" onclick="play()">Chơi</button>
+<script>
+  function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+  }
+  let min,max;
+  function play()
+  {
+    alert("bạn hãy nhập khoản bạn muốn vs các gia trị sau là min vs max");
+    do{
+       min = parseInt(prompt(" nhập min :"));
+       max = parseInt(prompt(" nhập max :"));
+       if(min>=max){
+         alert("xin bạn hãy nập lại với max phải lớn hơn min ");
+       }
+    }while(min>=max );
+     let x = parseInt(prompt(" bạn hãy nhập con số mà bạn cho là may mắn nhất:"))
+    if(x===getRndInteger(min,max))
+    {
+      document.write("<Marquee> conratulation !!!")
+    }
+    else if(x<=getRndInteger(min,max))
+    {
+      document.write("<Marquee> số bạn nhập bé hơn lucky number")
+
+    }
+    else if(x>=getRndInteger(min,max))
+    {
+      document.write("<Marquee> số bạn nhập lớn hơn lucky number")
+    }
+  }
+</script>
+</body>
+</html>

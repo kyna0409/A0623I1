@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 100px;
+            display: block;
+            background-image: linear-gradient(0deg,aliceblue,whitesmoke);
+            background-repeat: no-repeat;
+
+        }
+        button{
+            background-image: linear-gradient(0deg,red,yellow);
+        }
+        div{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<marquee >bạn nhập đúng tên tôi, bạn sẽ thấy điều bất ngờ mà tôi dành cho bạn</marquee>
+<input id="text" value="b">
+<button style="background-color: red" onclick="heart()">draw</button>
+<marquee id="out" style="font-family: 'Bodoni MT Black';color:red;font-size: 100px"> </marquee>
+<div id="heart"></div>
+<script>
+    let res=document.getElementById("heart");
+    let text="";
+    function heart()
+    {
+        if(document.getElementById("text").value==="b") {
+            for (let i = 0; i < 6; i++) {
+                for (let j = 0; j < 7; j++) {
+
+                    if ((i === 0 && j % 3 !== 0) || (i === 1 && j % 3 === 0) || i - j === 2 || j + i === 8) {
+                        res.innerHTML += "<font style='color: red'>*</font>"+"&nbsp;&nbsp;&nbsp;&nbsp;";
+                        // document.write("*");
+                    } else {
+                        res.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+                        // document.write("&nbsp&nbsp");
+                    }
+
+                }
+
+                res.innerHTML += "</br>";
+                // document.write("<br/>");
+            }
+        }
+        else
+        {
+            document.getElementById("out").innerHTML="lucky again";
+            setTimeout(function ()
+            {
+                alert("bạn đã nhập sai tên của tôi mời bạn nhập lại")
+                location.reload();
+            },500);
+        }
+
+
+
+
+            // for(let i=1; i<=6; i++)
+            // {
+            //     for(let j=1; j<=7; j++)
+            //     {
+            //         let d = document.createElement("label");
+            //         if((i===1 && (j===2||j===3||j===5||j===6))||i===2||i===3||(i===4&&(j>=2&&j<=6))||(i===5&&(j>=3&&j<=5))||(i===6&&j===4))
+            //         {
+            //             d.innerHTML ="*"+"&nbsp;&nbsp;&nbsp;&nbsp;";
+            //             res.append(d);
+            //            //document.write("*"+"&ensp;&ensp;&ensp;&ensp;")
+            //         }
+            //         else{
+            //             d.innerHTML ="*"+"&nbsp;&nbsp;&nbsp;&nbsp;";
+            //             res.append(d)
+            //             // res.innerHTML= "*"+"&ensp;&ensp;&ensp;&ensp;";
+            //        //     document.write("$"+"&ensp;&ensp;&ensp;&ensp;");
+            //
+            //         }
+            //     }
+            //
+            //     let l = document.createElement("div");
+            //     res.append(l);
+              //  document.write("<br><br>")
+        //     }
+        // }else
+        // {
+        //     document.getElementById("out").innerHTML="lucky again";
+        //     setTimeout(function ()
+        //     {
+        //         alert("bạn đã nhập sai tên của tôi mời bạn nhập lại")
+        //         location.reload();
+        //     },500);
+        // }
+    }
+
+
+</script>
+</body>
+</html>

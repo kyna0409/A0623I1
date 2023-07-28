@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  var array = ["item1" , "item2" , "item3"];
+  var a =[1,2,3];
+  // for(let i=0; i<array.length;i++)
+  // {
+  //   console.log("index = "+i+"__value = "+array[i]);
+  // }
+  // array.forEach(function (ar)
+  // {
+  //   console.log(ar+" value");
+  // })
+//  console.log(array);
+  var fistvalue = array[0];
+  console.log(fistvalue);
+  // độ dài của mảng
+  console.log(array.length);
+  // thêm phần tử vào phần cuối của mảng
+  array.push("item4");
+  //xoa phan tu o cuoi mang
+  a.pop();
+  console.log(a);
+  // thêm phần tử mới vào đầu của mảng
+
+  array.unshift("item 0");
+  //Hàm shift() sẽ lấy đi phần tử đầu tiên của mảng.
+  array.shift();
+  //sắp xếp mảng
+  //Hàm sort() sẽ giúp sắp xếp các phần tử của mảng theo một trật tự nhất định.
+  array.sort();
+  //Chúng ta cũng có thể đảo ngược trật tự của một mảng bằng cách sử dụng hàm reverse().
+  array.reverse();
+  // hàm so sánh
+  // Hàm so sánh trả về giá trị kiểu số: âm (nhỏ hơn 0), dương (lớn hơn 0) và 0.
+  //
+  // âm có nghĩa là phần tử đầu nhỏ hơn phần tử sau
+  // dương có nghĩa là phần tử đầu lớn hơn phần tử sau
+  // 0 có nghĩa là 2 phần tử bằng nhau
+  let points = [40, 100, 1, 5, 25, 10]
+  points.sort(function(a, b) {
+    return a - b
+  }) // [ 1, 5, 10, 25, 40, 100 ]
+
+  points.sort(function(a, b) {
+    return b - a
+  }) // [ 100, 40, 25, 10, 5, 1 ]
+  //
+</script>
+</body>
+</html>

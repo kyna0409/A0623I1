@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    .container{
+      display: inline-grid;
+      flex-direction: column;
+        align-items: flex-start;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <label>Language: English </label>
+  <textarea id="a" cols="70" rows="10"></textarea>
+  <label>Language: VietNamese </label>
+  <textarea id="b" cols="70" rows="10"></textarea>
+  <button onclick="tran()">translate </button>
+    <button onclick="dele()">Clear </button>
+
+</div>
+<script>
+  let e =['one','color','condition','cat','dog','black','broom','flower'];
+  let v =['số 1','màu sắc','điều kiện','con mèo','con chó','màu đen','cái chuổi','bông hoa'];
+ // let result;
+  function tran()
+  {
+      for(let i=0; i< e.length; i++)
+      {
+        if(  e[i]=== a.value)
+        {
+           // console.log(a.value)
+          b.value = v[i];
+        }
+      }
+      if(result!==undefined)
+      {
+          b.value = result;
+
+      }else
+      {
+          b.value ='not found!!!'
+      }
+
+
+  }
+  function dele()
+  {
+      a.value='';
+      b.value='';
+  }
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  let a=[];
+  let b=[];
+  let count =0;
+  let max = 0;
+  let index;
+  for(let i=0; i<10; i++)
+  {
+    a[i]=prompt("nhập giá trị của các phần tử a[i] :");
+  }
+  for(let i=0; i<10; i++)
+  {
+    b[i]=prompt("nhập giá trị của các phần tử b[i] :");
+  }
+  for(let i=0; i<10; i++)
+  {
+    document.writeln("a["+i+"]="+a[i]+"<br>");
+  }
+  for(let i=0; i<10; i++)
+  {
+    document.writeln("b["+i+"]="+b[i]+"<br>");
+  }
+let c =b.concat(a);
+  document.write("mảng c khi nối từ hai mảng b và a là : "+ c);
+</script>
+</body>
+</html>

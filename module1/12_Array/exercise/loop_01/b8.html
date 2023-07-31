@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number=[];
+    let count =0;
+    let max = 0;
+    let index;
+    for(let i=0; i<10; i++)
+    {
+        number[i]=prompt();
+    }
+    for(let i=0; i<10; i++)
+    {
+        document.writeln("number["+i+"]="+number[i]+"<br>");
+
+    }
+    number.sort(function (a,b)
+    {
+        return b-a;
+    })
+    document.write("mảng đươợc să xếp giảm dần là : "+number)
+
+
+</script>
+</body>
+</html>

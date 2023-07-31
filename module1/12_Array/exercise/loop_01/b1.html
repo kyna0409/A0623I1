@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let number=[];
+  let count =0;
+  for(let i=0; i<10; i++)
+  {
+    number[i]=prompt();
+  }
+  for(let i=0; i<10; i++)
+  {
+    document.writeln("number["+i+"]="+number[i]+"<br>");
+    if(number[i]>=10)
+    {
+      count++;
+    }
+  }
+  document.write("có : "+count+" lớn hơn 10 hoặc bằng 10");
+
+</script>
+</body>
+</html>

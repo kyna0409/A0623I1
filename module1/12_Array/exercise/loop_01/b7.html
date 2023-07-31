@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  let number=[];
+  let count =0;
+  let max = 0;
+  let index;
+  for(let i=0; i<10; i++)
+  {
+    number[i]=prompt();
+  }
+  let v = prompt("Enter a v :");
+  for(let i=0; i<10; i++)
+  {
+    document.writeln("number["+i+"]="+number[i]+"<br>");
+    if(v=== number[i])
+    {
+      index=i;
+    }
+  }
+ console.log(index);
+  if(index>-1)
+  {
+    number.splice(index,1);
+  }
+  document.write("mảng sau khi đã xóa phần tử v là: "+ number);
+
+</script>
+</body>
+</html>

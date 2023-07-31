@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    textarea{
+      height: 182px;
+      width: 418px
+    }
+  </style>
+</head>
+<body>
+<h1>TYPE ANYTHING SLOWLY</h1>
+<textarea onkeydown="myFunction(event)" id="a"></textarea>
+
+<script>
+  const a = document.getElementById('a');
+  var str='TÔI LÀ ĐỒ NGỐC !!!';
+  var s= str.split('');
+  let i = 0;
+ function myFunction(e)
+ {
+     a.textContent += s[i];
+     i++;
+     if(i === s.length+1){
+         i=0;
+         a.textContent = '';
+     }
+
+     e.preventDefault();
+   // let t = a.value;
+   //
+   // let n = '';
+   // if(t.length>0)
+   // {
+   //     console.log("a1");
+   //   for(let i=0; i<t.length; i++)
+   //   {
+   //     console.log(t.length)
+   //     n+= s[i];
+   //   }
+   //     console.log("a2");
+   //     if(t.length===21)
+   //     {
+   //         a.value='';
+   //     }
+   //
+   //   a.value =n;
+   //   n='';
+   // }
+   // console.log(n);
+ }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  let number=[];
+  let count =0;
+  let max = 0;
+  let index;
+  let sum =0;
+  for(let i=0; i<10; i++)
+  {
+    number[i]=prompt();
+  }
+  for(let i=0; i<10; i++)
+  {
+    document.writeln("number["+i+"]="+number[i]+"<br>");
+    sum += parseInt(number[i]);
+    if(number[i]>=max)
+    {
+      max = number[i];
+      console.log(max)
+      index=i
+    }
+
+  }
+  document.write("giá trị lớn nhất trong mảng là: "+max+" và ở vị trí thứ "+index+"<br>");
+  document.write("giá trị trung bình của các số trong mảng là: "+ sum/(number.length) );
+
+</script>
+</body>
+</html>

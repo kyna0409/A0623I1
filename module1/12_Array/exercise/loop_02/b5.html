@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let a='my name is cat';
+  let b='my name is cat hjhfhtfgf';
+  let count=0;
+  if(a.length !== b.length)
+  {
+      document.write("chuổi không bằng nhau  ");
+  }else
+  {
+      for(let i=0; i<a.length; i++)
+      {
+          if(a[i]===b[i])
+          {
+              count++;
+          }
+      }
+      if(count===a.length)
+      {
+          document.write("chuổi a và b bằng nhau ")
+      }
+  }
+</script>
+</body>
+</html>

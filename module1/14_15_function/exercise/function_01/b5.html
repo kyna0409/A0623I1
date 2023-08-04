@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p onclick="out()"> try it !!! </p>
+<div id="o"></div>
+<script>
+    let a = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe" , "Regulus"];
+    let b = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"]
+    let s = prompt('Enter a star :');
+    out(s);
+    function out(s)
+    {
+        for(let index in a)
+        {
+            if(a[index]===s)
+            {
+                o.innerHTML = ' my name '+ a[index] +' is : '+ b[index];
+                break;
+            }else{
+                o.innerHTML='<p style="color:#C73A2A">not found';
+            }
+        }
+
+    }
+</script>
+</body>
+</html>

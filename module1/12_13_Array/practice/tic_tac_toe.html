@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #2196F3;
+            margin: 0px;
+            padding: 0px;
+        }
+        section{
+            display: flex;
+            justify-content: center;
+        }
+        section div{
+            background-color: yellow;
+            height: 30px;
+            width: 30px;
+            border: 1px solid black;
+        }
+
+    </style>
+</head>
+<body>
+<h1 style="text-align: center;margin-bottom: 0px;padding-top: 0px"> GAME CARO </h1>
+<main></main>
+<script>
+    let a;
+    let main = document.querySelector("main");
+    let boardsize = 15;
+    let flag = true;
+    let text = confirm("bạn có muốn chơi game caro ko ?");
+    newgame();
+    function newgame()
+    {
+        a=[];
+        main.innerHTML='';
+        for(let i=0; i< boardsize; i++)
+        {
+            a[i]=[];
+            const row = document.createElement('section');
+            for(let j=0; j< boardsize; j++)
+            {
+                const cell =document.createElement('div');
+                a[i][j]='';
+                row.appendChild(cell);
+                cell.onclick=()=>
+                {
+                    if(a[i][j]!=='')
+                    {
+                        alert('bạn đã chọn ô này vui lòng chọn ô khác')
+                    }else
+                    {
+                        a[i][j]=flag ? 'X' : 'O';
+                        flag = ! flag;
+                        cell.innerHTML = "<p style='color: #ff006c ; font-family: 'Bodoni MT Black''>"+a[i][j]+'</p>'
+                        if(checkWin(a[i][j]))
+                        {
+                            alert("Đội "+a[i][j]+" WIN");
+                            newgame();
+                        }
+                    }
+
+                }
+
+            }
+            main.appendChild(row);
+        }
+
+    }
+    function checkWin(val)
+    {
+        for(let i=0; i<  boardsize; i++)
+        {
+            for(let j=0; j<boardsize; j++)
+            {
+                if(a[i][j]===val)
+                {
+                    if( a[i][j+1]===val && a[i][j+2]===val)
+                        return true;
+                    if(a[i+1])
+                    {
+                        if((a[i+1][j]===val && a[i+2][j]===val)
+                            ||(a[i+1][j-1]===val && a[i+2][j-2])
+                            ||(a[i+1][j+1]===val && a[i+2][j+2]===val))
+                            return true;
+                        {
+
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            background-color: rgb(2,17,100);
+        }
+        .form_container{
+            margin-top:  20px;
+            width: 60vw;
+            border-radius: 10px;
+            height: 80vh;
+            padding: 10px;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        form input{
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid gray;
+        }
+        form button{
+            padding: 10px;
+            background-color: green;
+            color: white;
+            border-radius: 7px;
+            cursor: pointer;
+            width: 100px;
+        }
+        button{
+            padding: 3px;
+            margin: 4px;
+            width: 50px;
+        }
+        .add_div{
+            width: 100%;
+            padding: 10px 0px 0px 90px;
+        }
+        .add_div button{
+            padding: 8px;
+            background-color: green;
+            color: white;
+            border-radius: 7px;
+        }
+        .add_div button:hover{
+            background-color: rgb(2,58,2);
+            cursor: pointer;
+        }
+        table{
+            width: 100%;
+            margin-top: 20px;
+            text-align: center;
+            border-collapse: collapse;
+            border-spacing: 0px;
+        }
+        .update_form,.create_form{
+            display: none;
+        }
+       table tr td {
+            border: 2px #566787 solid;
+        }
+       th{
+           border-collapse: collapse;
+           border-spacing: 0px;
+           border: 2px #566787 solid;
+       }
+    </style>
+</head>
+<body>
+<h1 style="text-align: center;color: #566787">DISPLAY ALL PRODUCT</h1>
+<div class="container">
+
+    <div class="form_container">
+        <form class="create_form">
+            <input type="text" placeholder="ms" id="ms">
+            <input type="text" placeholder="product name" id="name">
+            <input type="number" placeholder="product amount" id="amount">
+            <button onclick="create()">Create</button>
+        </form>
+        <form class="update_form">
+            <input type="text" placeholder="ms" id="ums">
+            <input type="text" id="uname">
+            <input type="number" id="uamount">
+            <button onclick="update()">Update</button>
+        </form>
+        <div class="add_div">
+           <label style="font-family: 'Times New Roman';font-size: 20px">All New Product<button onclick="add()">Add+</button></label>
+        </div>
+        <table>
+            <thead>
+                   <th> id </th>
+                   <th>Name</th>
+                   <th>Amount</th>
+                   <th>Action</th>
+            </thead>
+            <tbody class="data_table">
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    let data =[
+        {ms:1,name:'dress',amount:1000},
+        {ms:2,name:'t_shirt',amount:2000}
+    ]
+    data.push({ms:3,name:'jean',amount:3000});
+    data.push({ms:4,name:'coat',amount:4000});
+    console.log(data);
+    let data_table = document.querySelector('.data_table')
+    function add()
+    {
+        document.querySelector('.create_form').style.display='block';
+        document.querySelector('.add_div').style.display = 'none';
+    }
+    function create()
+    {
+        const ms = ms.value;
+        const name = name.value;
+        const amount = amount.value;
+        data.push({ms:ms,name:name,amount:amount});
+        displayData();
+    }
+    function displayData() {
+        data_table.innerHTML = "";
+
+        data.forEach((item, index) => {
+            const row = document.createElement("tr");
+
+            const msCell = document.createElement("td");
+            msCell.innerText = item.ms;
+
+            const nameCell = document.createElement("td");
+            nameCell.innerText = item.name;
+
+            const amountCell = document.createElement("td");
+            amountCell.innerText = item.amount;
+
+            const actionCell = document.createElement("td");
+
+            const editButton = document.createElement("button");
+            editButton.style.backgroundColor = 'blue';
+            editButton.innerText = "Edit";
+            edit(editButton,item);
+
+            const deleteButton = document.createElement("button");
+            deleteButton.style.backgroundColor = 'red'
+            deleteButton.innerText = "Delete";
+            dele(deleteButton,index);
+
+            actionCell.appendChild(editButton);
+            actionCell.appendChild(deleteButton);
+
+            row.appendChild(msCell);
+            row.appendChild(nameCell);
+            row.appendChild(amountCell);
+            row.appendChild(actionCell);
+
+            data_table.appendChild(row);
+        });
+    }
+
+    displayData();
+    function edit(editButton,item,index)
+    {
+        editButton.onclick=()=>
+        {
+            document.querySelector('.update_form').style.display = 'block';
+            document.querySelector('.add_div').style.display = 'none';
+            document.querySelector('.create_form').style.display = 'none';
+            ums.value = item.ms;
+            uname.value = item.name;
+            uamount.value = item.amount;
+            console.log(data.indexOf(item.ms));
+        }
+    }
+
+
+    function dele(deleteButton,index)
+    {
+        deleteButton.addEventListener("click", () => {
+            data.splice(index, 1);
+            displayData();
+        });
+    }
+</script>
+</body>
+</html>

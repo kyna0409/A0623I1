@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #f5f5f5;
+            display: flex;
+            /*align-items: center;*/
+            height: 100vh;
+        }
+        .mob-table{
+            width: 100%;
+            padding: 40px 0;
+            background-color: #fff;
+            margin: 30px 0;
+            border-radius: 3px;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+        }
+        .headers{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #435d7d;
+            color: #fff;
+            padding:  16px 30px;
+        }
+        .add
+        {
+            background-color: #5cb85c;
+            color: white;
+            width: 100px;
+            height: 50px;
+        }
+        th{
+            text-align: center;
+            color: #566787;
+
+        }
+        .btn{
+            padding:  3px 20px;
+            min-width: 90px;
+        }
+        .btn-primary{
+            color: #fff;
+            background-color: #337a7b;
+            border-color: #2e6da4;
+        }
+        .btn-danger{
+            color: #fff;
+            background-color: #ff006c;
+            border-color: #2e6da4;
+        }
+        table{
+            width: 60%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container mob-table">
+    <div class="headers">
+        <h2 class="table-title">Manage Mobiles</h2>
+        <button class="btn add">Add Mobile </button>
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Mobile</th>
+            <th>Price(Rs)</th>
+            <th>RAM</th>
+            <th>Storage</th>
+            <th colspan="2"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Real me 8</td>
+            <td>1800</td>
+            <td>8GB</td>
+            <td>64GB</td>
+            <td><button class="btn btn-primary">Edit</button></td>
+            <td><button class="btn btn-danger">Delete</button></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script>
+    let tbody = document.querySelector('tbody');
+
+    function  getMobiles()
+    {
+
+    }
+</script>
+</body>
+</html>

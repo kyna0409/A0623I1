@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let n = prompt("nhap vao so n");
+  function gt(n)
+  {
+    if(n===0 || n===1)
+    {
+      return 1;
+    }else return n*gt(n-1);
+  }
+  document.write("giai thừa của n là :"+ gt(n));
+</script>
+</body>
+</html>

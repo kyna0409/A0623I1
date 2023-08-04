@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="radio" value="good"><span>GOOD</span>
+<input type="radio" value="cheap"><span>CHEAP</span>
+<input type="radio" value="fast"><span>FAST</span>
+<script>
+  let rs=document.querySelectorAll('input');
+  for(let i=0; i<=2; i++)
+  {
+    rs[i].onclick=()=>
+    {
+      if(rs[0].checked && rs[1].checked && rs[2].checked)
+      {
+        if(i===0)
+        {
+          rs[i+2].checked = false;
+        }else
+        {
+          rs[i-1].checked = false;
+        }
+      }
+    }
+    // rs[i].addEventListener('click',()=>
+    // {
+    //   if(rs[0].checked && rs[1].checked && rs[2].checked)
+    //   {
+    //     if(i===0)
+    //     {
+    //       rs[i+2].checked = false;
+    //     }else
+    //     {
+    //       rs[i-1].checked = false;
+    //     }
+    //   }
+    // })
+
+  }
+</script>
+</body>
+</html>

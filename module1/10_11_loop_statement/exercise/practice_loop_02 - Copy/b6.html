@@ -24,7 +24,7 @@
 </head>
 <body>
 <marquee >bạn nhập đúng tên tôi, bạn sẽ thấy điều bất ngờ mà tôi dành cho bạn</marquee>
-<input id="text" value="b">
+<input id="text" placeholder="my name">
 <button style="background-color: red" onclick="heart()">draw</button>
 <marquee id="out" style="font-family: 'Bodoni MT Black';color:red;font-size: 100px"> </marquee>
 <div id="heart"></div>
@@ -33,7 +33,7 @@
     let text="";
     function heart()
     {
-        if(document.getElementById("text").value==="b") {
+        if(document.getElementById("text").value==="Thu Hoa") {
             for (let i = 0; i < 6; i++) {
                 for (let j = 0; j < 7; j++) {
 

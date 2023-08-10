@@ -37,7 +37,18 @@
     let main = document.querySelector("main");
     let boardsize = 15;
     let flag = true;
-    let text = confirm("bạn có muốn chơi game caro ko ?");
+    let text
+    do{
+        text = prompt("Hãy nhập keyword đúng nếu bạn muốn chơi game caro");
+        if(text!=='congratulation');
+        {
+            text = prompt("bạn đã nhập sai keyword vui lòng nhập lại");
+        }
+    }while(text!=='congratulation');
+
+
+
+
     newgame();
     function newgame()
     {
@@ -52,6 +63,14 @@
                 const cell =document.createElement('div');
                 a[i][j]='';
                 row.appendChild(cell);
+                cell.onmouseover=()=>
+                {
+                    cell.style.backgroundColor='pink';
+                }
+                cell.onmouseout=()=>
+                {
+                    cell.style.backgroundColor='yellow';
+                }
                 cell.onclick=()=>
                 {
                     if(a[i][j]!=='')

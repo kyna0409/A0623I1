@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function Temperature(c)
+  {
+    this.c = c;
+    this.convertF = function ()
+    {
+      return 9/5 * this.c +32;
+    }
+    this.convertK = function()
+  {
+    return this.c + 273.15;
+  }
+  }
+  let temperature = new Temperature(25);
+  alert('chuyển c sang f là : '+temperature.convertF());
+  alert('chuyển c sang k là : '+ temperature.convertK());
+</script>
+
+</body>
+</html>

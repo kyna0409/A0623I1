@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id ='mycanvas' width="200" height="200" style="border: 3px #ff006c solid" ></canvas>
+<script>
+  function Rectangle(x,y)
+  {
+    this.x = x;
+    this.y = y;
+    this.getCV = function ()
+    {
+      return this.x * this.y;
+    }
+    this.getDT = function ()
+    {
+      return 2 * (this.x + this.y);
+    }
+    this.setCD = function (x,y)
+    {
+      this.x = x;
+      this.y = y;
+    }
+  }
+  let rectangle = new Rectangle(20,20);
+  rectangle.setCD(prompt('nhap x='), prompt('nhap y='));
+  function create()
+  {
+    let rtg = document.getElementById('mycanvas').getContext('2d');
+    rtg.fillStyle = 'black';
+    rtg.fillRect(rectangle.x,rectangle.y,150,100);
+  }
+  create();
+  alert(rectangle.getCV());
+  alert(rectangle.getDT());
+</script>
+</body>
+</html>

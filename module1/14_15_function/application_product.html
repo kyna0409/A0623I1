@@ -4,19 +4,21 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        *{
+        * {
             padding: 0px;
             margin: 0px;
             box-sizing: border-box;
         }
-        .container{
+
+        .container {
             display: flex;
             justify-content: center;
             height: 100vh;
-            background-color: rgb(2,17,100);
+            background-color: rgb(2, 17, 100);
         }
-        .form_container{
-            margin-top:  20px;
+
+        .form_container {
+            margin-top: 20px;
             width: 60vw;
             border-radius: 10px;
             height: 80vh;
@@ -24,14 +26,16 @@
             background-color: white;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-values: center;
         }
-        form input{
+
+        form input {
             padding: 10px;
             border-radius: 8px;
             border: 1px solid gray;
         }
-        form button{
+
+        form button {
             padding: 10px;
             background-color: green;
             color: white;
@@ -39,43 +43,57 @@
             cursor: pointer;
             width: 100px;
         }
-        button{
+
+        button {
             padding: 3px;
             margin: 4px;
             width: 50px;
         }
-        .add_div{
+
+        .add_div {
             width: 100%;
             padding: 10px 0px 0px 90px;
         }
-        .add_div button{
+
+        .add_div button {
             padding: 8px;
             background-color: green;
             color: white;
             border-radius: 7px;
+            margin-left: 500px;
+
         }
-        .add_div button:hover{
-            background-color: rgb(2,58,2);
+
+        .add_div button:hover {
+            background-color: rgb(2, 58, 2);
             cursor: pointer;
         }
-        table{
+
+        table {
             width: 100%;
             margin-top: 20px;
             text-align: center;
             border-collapse: collapse;
             border-spacing: 0px;
         }
-        .update_form,.create_form{
+
+        .update_form, .create_form {
             display: none;
         }
-       table tr td {
+
+        table tr td {
             border: 2px #566787 solid;
         }
-       th{
-           border-collapse: collapse;
-           border-spacing: 0px;
-           border: 2px #566787 solid;
-       }
+
+        th {
+            border-collapse: collapse;
+            border-spacing: 0px;
+            border: 2px #566787 solid;
+        }
+
+        label {
+            margin-left: 500px;
+        }
     </style>
 </head>
 <body>
@@ -84,26 +102,29 @@
 
     <div class="form_container">
         <form class="create_form">
-            <input type="text" placeholder="ms" id="ms">
-            <input type="text" placeholder="product name" id="name">
-            <input type="number" placeholder="product amount" id="amount">
-            <button onclick="create()">Create</button>
+            <input type="hidden"  id="msProduct">
+            <input type="text" placeholder="product name" id="nameProduct">
+            <input type="number" placeholder="product amount" id="amountProduct">
+            <button type="button" onclick="create()">Create</button>
         </form>
         <form class="update_form">
-            <input type="text" placeholder="ms" id="ums">
+            <input type="hidden"  id="ums">
             <input type="text" id="uname">
             <input type="number" id="uamount">
-            <button onclick="update()">Update</button>
+            <button type="button" onclick="update()">Update</button>
         </form>
         <div class="add_div">
-           <label style="font-family: 'Times New Roman';font-size: 20px">All New Product<button onclick="add()">Add+</button></label>
+            <label style="font-family: 'Times New Roman';font-size: 20px">All New Product
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <button onclick="add()">Add+</button>
         </div>
         <table>
             <thead>
-                   <th> id </th>
-                   <th>Name</th>
-                   <th>Amount</th>
-                   <th>Action</th>
+            <th> MS</th>
+            <th>NAME</th>
+            <th>AMOUNT</th>
+            <th>TIME</th>
+            <th>ACTION</th>
             </thead>
             <tbody class="data_table">
 
@@ -112,53 +133,78 @@
     </div>
 </div>
 <script>
-    let data =[
-        {ms:1,name:'dress',amount:1000},
-        {ms:2,name:'t_shirt',amount:2000}
+    const d = new Date();
+    let data = [
+        {ms: 1, name: 'dress', amount: 1000,time:d},
+        {ms: 2, name: 't_shirt', amount: 2000,time:d}
     ]
-    data.push({ms:3,name:'jean',amount:3000});
-    data.push({ms:4,name:'coat',amount:4000});
     console.log(data);
+    // data.push({ms:3,name:'jean',amount:3000});
+    //data.push({ms: 4, name: 'coat', amount: 4000});
     let data_table = document.querySelector('.data_table')
-    function add()
-    {
-        document.querySelector('.create_form').style.display='block';
+
+    function add() {
+        document.querySelector('.create_form').style.display = 'block';
         document.querySelector('.add_div').style.display = 'none';
     }
-    function create()
-    {
-        const ms = ms.value;
-        const name = name.value;
-        const amount = amount.value;
-        data.push({ms:ms,name:name,amount:amount});
-        displayData();
+
+    displayData();
+
+    function create() {
+        const lastItem = data[data.length -1];
+        let lastId = 1;
+
+        if(lastItem != null){
+            lastId = lastItem.ms +1;
+        }
+        console.log(lastId);
+        if (check( nameProduct.value, amountProduct.value)) {
+           // console.log(lastId);
+            data.push({ms: lastId, name: nameProduct.value, amount: amountProduct.value,time:d});
+            displayData();
+            document.querySelector('.create_form').style.display = 'none';
+            document.querySelector('.add_div').style.display = 'block';
+            alert('Create successful !!!');
+        }
+
     }
+
     function displayData() {
         data_table.innerHTML = "";
 
-        data.forEach((item, index) => {
+        data.forEach((value, index, array) => {
             const row = document.createElement("tr");
 
             const msCell = document.createElement("td");
-            msCell.innerText = item.ms;
+            msCell.innerText = value.ms;
 
             const nameCell = document.createElement("td");
-            nameCell.innerText = item.name;
+            nameCell.innerText = value.name;
 
             const amountCell = document.createElement("td");
-            amountCell.innerText = item.amount;
+            amountCell.innerText = value.amount;
+
+            const timeCell = document.createElement("td");
+            timeCell.innerText = value.time;
 
             const actionCell = document.createElement("td");
 
             const editButton = document.createElement("button");
             editButton.style.backgroundColor = 'blue';
             editButton.innerText = "Edit";
-            edit(editButton,item);
+            editButton.onclick = () => {
+                document.querySelector('.update_form').style.display = 'block';
+                document.querySelector('.add_div').style.display = 'none';
+                document.querySelector('.create_form').style.display = 'none';
+                ums.value = value.ms;
+                uname.value = value.name;
+                uamount.value = value.amount;
+            }
 
             const deleteButton = document.createElement("button");
             deleteButton.style.backgroundColor = 'red'
             deleteButton.innerText = "Delete";
-            dele(deleteButton,index);
+            dele(deleteButton, index);
 
             actionCell.appendChild(editButton);
             actionCell.appendChild(deleteButton);
@@ -166,34 +212,101 @@
             row.appendChild(msCell);
             row.appendChild(nameCell);
             row.appendChild(amountCell);
+            row.appendChild(timeCell);
             row.appendChild(actionCell);
 
             data_table.appendChild(row);
+
+            row.onmouseover = () => {
+                row.style.backgroundColor = 'yellow';
+            }
+            row.onmouseout = () => {
+                row.style.backgroundColor = 'white';
+            }
         });
     }
 
-    displayData();
-    function edit(editButton,item,index)
-    {
-        editButton.onclick=()=>
-        {
-            document.querySelector('.update_form').style.display = 'block';
-            document.querySelector('.add_div').style.display = 'none';
-            document.querySelector('.create_form').style.display = 'none';
-            ums.value = item.ms;
-            uname.value = item.name;
-            uamount.value = item.amount;
-            console.log(data.indexOf(item.ms));
-        }
+  //  testCreate();
+/// id auto increase
+    // function testCreate(){
+    //    const lastItem = data[data.length -1];
+    //    let lastId = 1;
+    //
+    //    if(lastItem != null){
+    //        lastId = lastItem.ms +1;
+    //    }
+    //    console.log(lastId);
+    //    data.push({ms:lastId,name:uname.value,amount:uamount.value});
+    // }
+
+    function update() {
+        // const id = ums.value;
+        // const name = uname.value;
+        // const amount = uamount.value;
+        //
+        // for (let i = 0; i < data.length; i++) {
+        //     if(data.ms == id){
+        //        data[i] =  {ms:1,name:name,amount:amount};
+        //        break;
+        //     }
+        // }
+        //
+        // displayData();
+
+        const index = data.findIndex(e => e.ms == ums.value);
+        data[index] = {ms:ums.value,name:uname.value,amount:uamount.value,time:d};
+        document.querySelector('.add_div').style.display = 'block';
+        document.querySelector('.update_form').style.display = 'none';
+
+        // data.map(e => {
+        //     console.log(e.ms)
+        //     console.log(ums.value)
+        //     if (e.ms == ums.value) {
+        //         e.name = uname.value;
+        //         e.amount = uamount.value;
+        //         console.log('test')
+        //
+        //
+        //
+        //     }
+        // })
+
+        displayData();
+
+
+        //  data.map(function (change){
+        //     if(change.ms === ums.value)
+        //     {
+        //         change.name= uname.value;
+        //         change.amount = uamount.value;
+        //
+        //
+        //     }
+        //     return change;
+        // })
+
+        // console.log(data);
     }
 
-
-    function dele(deleteButton,index)
-    {
+    function dele(deleteButton, index) {
         deleteButton.addEventListener("click", () => {
             data.splice(index, 1);
+            alert('Delete successful !!!' + ' sản phẩm có ms là : ');
             displayData();
         });
+
+    }
+
+    function check(name, amount) {
+        if (name === '') {
+            alert('Bạn đã bỏ qua NAME')
+            return false;
+        }
+        if (amount === '') {
+            alert('Bạn đã bỏ qua AMOUNT')
+            return false;
+        }
+        return true;
     }
 </script>
 </body>

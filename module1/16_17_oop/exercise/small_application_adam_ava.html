@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let Apple = function(weight)
+    {
+        this.weight =30;
+
+        this.getWeight = function ()
+        {
+            return this.weight;
+        }
+        this.decrease = function ()
+        {
+             this.weight --;
+        }
+        this.isEmpty = function ()
+        {
+            this.weight = false;
+        }
+    }
+    let Human = function(name, gender, weight)
+    {
+        this.name = name;
+        this.gender = gender;
+        this.weight = weight;
+        this.isMale = function ()
+        {
+            if(this.gender===true)
+            {
+                return 'Male';
+            }else
+            {
+                return 'Female';
+            }
+        }
+        this.setGender = function (gender)
+        {
+            this.gender = gender;
+        }
+        this.checkApple = function (apple)
+        {
+            return this.apple.weight;
+        }
+        this.eat = function (apple)
+        {
+            if(this.apple.getWeight()>0)
+            {
+                this.decrease();
+            }
+            this.weight++;
+        }
+        this.say = function (str)
+        {
+            alert(str);
+        }
+        this.getName = function ()
+        {
+            return this.name;
+        }
+        this.setName = function (name)
+        {
+            this.name = name;
+        }
+        this.getWeight = function ()
+        {
+            return this.weight;
+        }
+        this.setWeight = function (w)
+        {
+            this.weight = weight;
+        }
+
+    }
+    const apple = new Apple();
+    const adam = new Human('adam',false,60);
+    const eva = new Human('eva',true,40);
+    // adam.say("Would you like to go to garden of Eden?");
+    // eva.say("ok, we can go now");
+    // adam.say("that apple is beautiful");
+    // eva.say("can we try to eat it?");
+    //
+    // adam.say("Are you a female?");
+    // eva.say(eva.isMale());
+    let w_adam = adam.getWeight();
+    let w_eva = adam.getWeight();
+   // console.log(apple.getWeight());
+   // console.log(adam.checkApple(apple))
+    // for (let i = 0; i <=adam.checkApple(apple) ; i++) {
+    //     console.log("adam eat apple");
+    //     adam.eat(apple);
+    //     console.log(w_adam);
+    //     console.log("eva eat apple");
+    //     eva.eat(apple);
+    //     console.log(eva);
+    // }
+    //console.log(apple.w);
+  //  eva.eat(apple);
+    console.log(w_eva);
+    console.log(adam.checkApple(apple));
+
+</script>
+</body>
+</html>

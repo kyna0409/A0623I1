@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id ='myCanvas' width="200" height="200" style="border: 3px #0000FF solid"></canvas>
+<script>
+  let SwitchButton = function ()
+  {
+
+    this.setLamp = function (lamp)
+    {
+      this.lamp = lamp;
+    }
+
+    this.connectToLamp = function (lamp)
+    {
+
+      if(this.status && this.lamp.status)
+      {
+        return 'rgb('+180+','+180+','+10+')';
+      }
+      else
+      {
+        return  'rgb('+0+','+0+','+0+')';
+      }
+    }
+    this.switchOff = function ()
+    {
+      this.status = false;
+    }
+
+    this.switchOn = function()
+    {
+      this.status = true;
+    }
+  }
+  let ElectricLamp = function (status)
+  {
+
+    this.turnOff = function ()
+    {
+      this.status = false;
+    }
+
+    this.turnOn = function ()
+    {
+      this.status = true;
+    }
+  }
+  let create = function ()
+  {
+    let c = document.getElementById('myCanvas').getContext('2d');
+    c.beginPath();
+    c.arc(95,90,40,0,2*Math.PI);
+    c.fillStyle = s.connectToLamp(lamp)
+    c.fill();
+  }
+
+  let lamp = new ElectricLamp();
+  let s = new SwitchButton();
+  s.setLamp(lamp);
+
+  // s.switchOff()
+  // lamp.turnOff();
+  // console.log(s.connectToLamp(lamp));
+  // create();
+
+  s.switchOn()
+  lamp.turnOn();
+  console.log(s.connectToLamp(lamp));
+  create();
+  //
+  // s.switchOff()
+  // lamp.turnOn();
+  // console.log(s.connectToLamp(lamp));
+  // create();
+  //
+  // s.switchOn()
+  // lamp.turnOn();
+  // console.log(s.connectToLamp(lamp));
+  // create();
+  //
+  // s.switchOn()
+  // lamp.turnOff();
+  // console.log(s.connectToLamp(lamp));
+  // create();
+  //
+  // s.switchOn()
+  // lamp.turnOn();
+  // console.log(s.connectToLamp(lamp));
+  // create();
+
+</script>
+</body>
+</html>

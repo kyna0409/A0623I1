@@ -28,6 +28,10 @@
         this.name = name;
         this.gender = gender;
         this.weight = weight;
+        this.setApple = function (apple)
+        {
+            this.apple = apple;
+        }
         this.isMale = function ()
         {
             if(this.gender===true)
@@ -50,7 +54,7 @@
         {
             if(this.apple.getWeight()>0)
             {
-                this.decrease();
+                this.apple.decrease();
             }
             this.weight++;
         }
@@ -79,29 +83,25 @@
     const apple = new Apple();
     const adam = new Human('adam',false,60);
     const eva = new Human('eva',true,40);
-    // adam.say("Would you like to go to garden of Eden?");
-    // eva.say("ok, we can go now");
-    // adam.say("that apple is beautiful");
-    // eva.say("can we try to eat it?");
-    //
-    // adam.say("Are you a female?");
-    // eva.say(eva.isMale());
-    let w_adam = adam.getWeight();
-    let w_eva = adam.getWeight();
-   // console.log(apple.getWeight());
-   // console.log(adam.checkApple(apple))
-    // for (let i = 0; i <=adam.checkApple(apple) ; i++) {
-    //     console.log("adam eat apple");
-    //     adam.eat(apple);
-    //     console.log(w_adam);
-    //     console.log("eva eat apple");
-    //     eva.eat(apple);
-    //     console.log(eva);
-    // }
-    //console.log(apple.w);
-  //  eva.eat(apple);
-    console.log(w_eva);
-    console.log(adam.checkApple(apple));
+    adam.setApple(apple);
+    eva.setApple(apple);
+
+    adam.say("Would you like to go to garden of Eden?");
+    eva.say("ok, we can go now");
+    adam.say("that apple is beautiful");
+    eva.say("can we try to eat it?");
+
+    adam.say("Are you a female?");
+    eva.say(eva.isMale());
+
+    for (let i = 0; i <=adam.checkApple(apple) ; i++) {
+        console.log("adam eat apple");
+        adam.eat(apple);
+        console.log('cân nặng hiện tại của adam:'+adam.getWeight());
+        console.log("eva eat apple");
+        eva.eat(apple);
+        console.log('cân nặng hiện tại của eva:'+eva.getWeight());
+    }
 
 </script>
 </body>

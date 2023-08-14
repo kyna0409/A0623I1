@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 97vh;
+      background-image: linear-gradient(paleturquoise,skyblue,cadetblue);
+      border: 10px #5cb85c solid;
+      padding: 0px;
+      margin: 0px;
+    }
+
+    section{
+      display: flex;
+      justify-content: center;
+    }
+    section div{
+      background-color: yellow;
+      height: 30px;
+      width: 30px;
+      border: 1px solid black;
+      text-align: center;
+
+    }
+  </style>
+</head>
+<body>
+<main></main>
+<script>
+  let main = document.querySelector('main');
+  let a ;
+  let flag = true;
+  caro();
+  function caro(){
+    a=[];
+    main.innerHTML=''
+    for(let i = 0; i<20; i++)
+    {
+        a[i]=[];
+      const row = document.createElement('section');
+      for (let j = 0; j<20; j++)
+      {
+        const cell = document.createElement('div');
+        a[i][j]='';
+        row.appendChild(cell);
+        cell.onmouseover = ()=>
+        {
+          cell.style.backgroundColor ='pink';
+        }
+        cell.onmouseout = ()=>
+        {
+          cell.style.backgroundColor ='yellow';
+        }
+
+        cell.onclick = ()=>
+        {
+          if(a[i][j]!='')
+          {
+            alert('ô này bạn đã chọn, Vui lòng chọn ô khác')
+          }else
+          {
+            a[i][j] = flag ? 'X' : 'O';
+            console.log(a[i][j]);
+            flag = !flag;
+            cell.innerText = a[i][j];
+          }
+          if(checkWin(a[i][j]))
+          {
+            alert("đội "+ a[i][j] +' win');
+            caro();
+          }
+
+        }
+      }
+      main.appendChild(row);
+    }
+  }
+  function checkWin(val)
+  {
+    for(let i=0; i<20; i++)
+    {
+      for(let j=0; j<20; j++)
+      {
+        if(a[i][j]===val)
+        {
+          if(a[i][j+1]===val && a[i][j+2]===val)
+          {
+            return true;
+          }
+
+            if((a[i+1][j]===val && a[i+2][j]===val)||
+                    (a[i+1][j-1]===val && a[i+2][j-2]===val)||
+                    (a[i+1][j+1]===val && a[i+2][j+2]===val)
+            )
+            {
+              return true;
+            }
+           return false;
+        }
+      }
+    }
+  }
+
+</script>
+</body>
+</html>

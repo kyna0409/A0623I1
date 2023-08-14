@@ -1,0 +1,143 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div
+        {
+            width: 300px;
+            height: 500px;
+            background-color: #ffffcc;
+            border-radius: 5%;
+            border: 10px black solid;
+            display: block;
+            justify-content: center;
+            margin-top: 10px;
+
+        }
+        main{
+            width: 300px;
+            height: 470px;
+            background-color: whitesmoke;
+            border-radius: 9%;
+        }
+        button{
+            border-radius: 10px;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 30px;
+            padding-right: 30px;
+
+        }
+    </style>
+</head>
+<body>
+<div >
+    <main></main>
+    <button>Send</button>
+    <button>Draft</button>
+    <button>Receive</button>
+    <button>Draft</button>
+</div>
+<div >
+    <main></main>
+    <button>Send</button>
+    <button>Draft</button>
+    <button>Receive</button>
+    <button>Draft</button>
+</div>
+<script>
+    class Mobile{
+        constructor(pin, draft, send, receive, status) {
+            this.pin = pin;
+            this.draft = draft;
+            this.send = send;
+            this.receive = receive;
+            this.status = status;
+        }
+        checkStatus()
+        {
+            if(this.status)
+            {
+                alert('điện thoại đang bật');
+            }else
+            {
+                alert('điện thoại đang tắt')
+            }
+        }
+        turnOn()
+        {
+            this.status = true;
+            this.pin--;
+        }
+        turnOff()
+        {
+            this.status = false;
+        }
+        setPin(pin)
+        {
+            this.pin = pin;
+        }
+        setDraft(message)
+        {
+            if(this.status)
+            {
+                this.draft.unshift(message);
+                this.pin--;
+            }else
+            {
+                alert('vui lòng bậc điện thoại len');
+            }
+        }
+        sendMessage(mobileTo,messenge)
+        {
+            if(this.status)
+            {
+                this.send.unshift(messenge);
+                mobileTo.receive.unshift(messenge);
+                this.pin--;
+            }else
+            {
+                alert('vui lòng bậc điện thoại len');
+            }
+        }
+        receiveMessage(message)
+        {
+            if(this.status)
+            {
+                this.receive.unshift(message);
+                this.pin--;
+            }else
+            {
+                alert('vui lòng bậc điện thoại len');
+            }
+        }
+        getSendMessage()
+        {
+            if (this.status){
+                this.pin--;
+                return this.send;
+            }else {
+                alert('vui lòng bậc điện thoại len');
+            }
+        }
+        getReceiveMessage(){
+            if (this.status){
+                this.pin--;
+                return this.receive;
+            }else {
+                alert("Bật điện thoại lên rồi soạn tin");
+            }
+        }
+    }
+    let nokia = new Mobile(50,[],[],[],true);
+    let iphone = new Mobile(20,[],[],[],false);
+</script>
+</body>
+</html>

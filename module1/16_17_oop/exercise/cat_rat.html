@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+
+  <body>
+    <script>
+      class Animals {
+        constructor(name, weight, speed, language) {
+          this.name = name;
+          this.weight = weight;
+          this.speed = speed;
+          this.language = language;
+        }
+        getName() {
+          return this.name;
+        }
+        getLanguage() {
+          return this.language;
+        }
+        getWeight() {
+          return this.weight;
+        }
+        getSpeed() {
+          return this.speed;
+        }
+      }
+      let flag = 0;
+      class Rat extends Animals {
+        die() {
+          this.status = false;
+        }
+        live() {
+          this.status = true;
+        }
+        checkDie() {
+          if (this.status) {
+            console.log("chuot chua chet");
+            this.status = true;
+          } else {
+            console.log("chuot da chet");
+            this.status = false;
+          }
+        }
+      }
+      class Cat extends Animals {
+        setRat(rat) {
+          this.rat = rat;
+        }
+        check(speedCat, speedRat, rat) {
+          if (!this.rat.status) {
+            console.log("chuot da chet meo khong the an duoc");
+            flag = 0;
+          } else {
+            flag = 1;
+            if (speedCat > speedRat) {
+              this.rat.status = false;
+              console.log("chuot da duoc bat");
+            } else {
+              this.rat.status = true;
+              console.log("chuot chua duoc bat");
+            }
+          }
+        }
+        decrease(rat) {
+          if (flag != 0) {
+            if (!this.rat.status) {
+              this.weight += this.rat.weight;
+            }
+          }
+        }
+      }
+      let cat = new Cat("tom", 50, 50, "meomeo");
+      let rat = new Rat("jerry", 20, 20, "chitchit");
+      rat.live();
+      cat.setRat(rat);
+      console.log("ten cua meo la : " + cat.getName());
+      console.log("can nang cua meo la : " + cat.getWeight());
+      console.log("toc do cua meo la : " + cat.getSpeed());
+      console.log("tieng keu cua meo la : " + cat.getLanguage());
+      console.log("ten cua chuot la : " + rat.getName());
+      console.log("can nang cua chuot la : " + rat.getWeight());
+      console.log("toc do cua chuot la : " + rat.getSpeed());
+      console.log("tieng keu cua chuot la : " + rat.getLanguage());
+      rat.checkDie();
+      cat.check(cat.speed, rat.speed, rat);
+      rat.checkDie();
+      cat.decrease(rat);
+      console.log("can nang hien tai cua meo Tom la : " + cat.getWeight());
+    </script>
+  </body>
+</html>

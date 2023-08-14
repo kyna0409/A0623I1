@@ -1,239 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Title</title>
-  <style>
-    body{
-      display: flex;
-      margin-left: 300px;
-      padding-right: 100px;
-    }
-    .no{
-      width: 300px;
-      height: 500px;
-      background-image: linear-gradient(red,yellow,royalblue);
-      border: 9px solid black;
-      border-radius: 8%;
-      display: block;
-      justify-content: center;
-      align-items: center;
-      padding-top: 30px;
-      margin-left: 60px;
-
-    }
-    .ip{
-      width: 300px;
-      height: 500px;
-      background-image: linear-gradient(blue,darkblue,midnightblue);
-      border: 9px solid black;
-      border-radius: 8%;
-      display: block;
-      justify-content: center;
-      padding-top: 30px;
-      margin-left: 60px;
-
-    }
-    .but{
-      display: inline-block;
-      justify-content: space-between;
-      align-items: initial;
-    }
-    main{
-      background-color: white;
-      width: 300px;
-      height: 400px;
-      align-items: flex-end;
-      display: flex;
-    }
-    button{
-      padding-bottom: 0px;
-      margin-bottom: 0px;
-    }
-    textarea{
-      width: 290px;
-      border: 3px #ff006c solid ;
-    }
-  </style>
-</head>
-<body>
-<div class="no">
-  <input type="text">
-  <main id="displayNokia">
-
-  </main >
-  <textarea id="messageNokia"></textarea>
-  <button type="button" onclick="onoffNokia()" id="ofn">ON/OFF</button>
-  <button onclick="sendNokia()" type="button">Send</button>
-  <button type="button">Draft</button>
-  <button type="button" onclick="receiveNokia()">Receive</button>
-  <button type="button" onclick="resetMainNokia()">Reset</button>
-
-</div>
-<div class="ip">
-  <input type="text">
-  <main id="displayIphone">
-
-  </main>
-  <textarea id="messageIphone"></textarea>
-  <button type="button" onclick="onoffIphone()" id="ofi">ON/OFF</button>
-  <button onclick="sendIphone()" type="button">Send</button>
-  <button type="button">Draft</button>
-  <button onclick="receiveIphone()" type="button">Receive</button>
-  <button type="button" onclick="resetMainIphone()">Reset</button>
-
-</div>
-  <script>
-    class Mobile{
-    constructor(pin, draft, send, receive, status) {
-    this.pin = pin;
-    this.draft = draft;
-    this.send = send;
-    this.receive = receive;
-    this.status = status;
-  }
-    checkStatus()
-  {
-    if(this.status)
-  {
-    alert('điện thoại đang bật');
-  }else
-  {
-    alert('điện thoại đang tắt')
-  }
-  }
-    turnOn()
-  {
-    this.status = true;
-    this.pin--;
-  }
-    turnOff()
-  {
-    this.status = false;
-  }
-    setPin(pin)
-  {
-    this.pin = pin;
-  }
-    setDraft(message)
-  {
-    if(this.status)
-  {
-    this.draft.unshift(message);
-    this.pin--;
-  }else
-  {
-    alert('vui lòng bậc điện thoại len');
-  }
-  }
-    sendMessage(mobileTo,messenge)
-  {
-    if(this.status)
-  {
-    this.send.unshift(messenge);
-    mobileTo.receive.unshift(messenge);
-    this.pin--;
-  }else
-  {
-    alert('vui lòng bậc điện thoại len');
-  }
-  }
-    receiveMessage(message)
-  {
-    if(this.status)
-  {
-    this.receive.unshift(message);
-    this.pin--;
-  }else
-  {
-    alert('vui lòng bậc điện thoại len');
-  }
-  }
-    getSendMessage()
-  {
-    if (this.status){
-    this.pin--;
-    return this.send;
-  }else {
-    alert('vui lòng bậc điện thoại len');
-  }
-  }
-    getReceiveMessage(){
-    if (this.status){
-    this.pin--;
-    return this.receive;
-  }else {
-    alert("Bật điện thoại lên rồi soạn tin");
-  }
-  }
-  }
-    let nokia = new Mobile(50,[],[],[],true);
-    let iphone = new Mobile(20,[],[],[],false);
-    let textareaNokia = document.getElementById('messageNokia');
-    let textareaIphone = document.getElementById('messageIphone');
-    const mainIphone = document.getElementById('displayIphone');
-    const mainNokia = document.getElementById('displayNokia');
-   ////   NOKIA
-    let clickCountN = 0;
-    function onoffNokia()
-    {
-      if (clickCountN === 0) {
-        ofn.style.backgroundColor = "yellow";
-      } else if (clickCountN === 1) {
-        ofn.style.backgroundColor = "white";
+    <style>
+      body {
+        display: flex;
+        margin-left: 300px;
+        padding-right: 100px;
       }
-      clickCountN = (clickCountN + 1) % 2;
-      if(ofn.style.backgroundColor =='yellow')
-    {
-      nokia.turnOn();
-    }else nokia.turnOff();
-
-    }
-    function sendNokia()
-    {
-      iphone.receiveMessage(textareaNokia.value);
-    }
-    function receiveIphone()
-    {
-      mainIphone.innerHTML = iphone.getReceiveMessage().join('<br>');
-    }
-    function resetMainIphone()
-    {
-      mainIphone.innerHTML='';
-      textareaIphone.value = '';
-    }
-    ///// IPHONE
-    function onoffIphone()
-    {
-      if (clickCountN === 0) {
-        ofi.style.backgroundColor = "yellow";
-      } else if (clickCountN === 1) {
-        ofi.style.backgroundColor = "white";
+      .no {
+        width: 300px;
+        height: 500px;
+        background-image: linear-gradient(red, yellow, royalblue);
+        border: 9px solid black;
+        border-radius: 8%;
+        display: block;
+        justify-content: center;
+        align-items: center;
+        padding-top: 30px;
+        margin-left: 60px;
       }
-      clickCountN = (clickCountN + 1) % 2;
-      if(ofi.style.backgroundColor =='yellow')
-      {
-        iphone.turnOn();
-      }else iphone.turnOff();
+      .ip {
+        width: 300px;
+        height: 500px;
+        background-image: linear-gradient(blue, darkblue, midnightblue);
+        border: 9px solid black;
+        border-radius: 8%;
+        display: block;
+        justify-content: center;
+        padding-top: 30px;
+        margin-left: 60px;
+      }
+      .but {
+        display: inline-block;
+        justify-content: space-between;
+        align-items: initial;
+      }
+      main {
+        background-color: white;
+        width: 300px;
+        height: 400px;
+        align-items: flex-end;
+        display: flex;
+      }
+      button {
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+      }
+      textarea {
+        width: 290px;
+        border: 3px #ff006c solid;
+      }
+      input {
+        align-text: center;
+        width: 30px;
+        height: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="no">
+      <input id="pinNokia" type="text" />
+      <main id="displayNokia"></main>
+      <textarea id="messageNokia"></textarea>
+      <button type="button" onclick="onoffNokia()" id="ofn">ON/OFF</button>
+      <button onclick="sendNokia()" type="button">Send</button>
+      <button type="button" onclick="draftNokia()">Draft</button>
+      <button type="button" onclick="receiveNokia()">Receive</button>
+      <button type="button" onclick="resetMainNokia()">Reset</button>
+    </div>
+    <div class="ip">
+      <input id="pinIphone" type="text" />
+      <main id="displayIphone"></main>
+      <textarea id="messageIphone"></textarea>
+      <button type="button" onclick="onoffIphone()" id="ofi">ON/OFF</button>
+      <button onclick="sendIphone()" type="button">Send</button>
+      <button type="button" onclick="draftIphone()">Draft</button>
+      <button onclick="receiveIphone()" type="button">Receive</button>
+      <button type="button" onclick="resetMainIphone()">Reset</button>
+    </div>
+    <script>
+      class Mobile {
+        constructor(pin, draft, send, receive, status) {
+          this.pin = pin;
+          this.draft = draft;
+          this.send = send;
+          this.receive = receive;
+          this.status = status;
+        }
+        checkStatus() {
+          if (this.status) {
+            alert("điện thoại đang bật");
+          } else {
+            alert("điện thoại đang tắt");
+          }
+        }
+        turnOn() {
+          if (this.pin > 0) {
+            this.status = true;
+            this.pin--;
+          } else {
+            alert("ban can sac pin");
+          }
+        }
+        turnOff() {
+          this.status = false;
+        }
+        setPin(pin) {
+          this.pin = pin;
+        }
+        setDraft(message) {
+          if (this.status) {
+            if (this.pin > 0) {
+              this.draft.unshift(message);
+              this.pin--;
+            } else {
+              alert("ban can sac pin");
+            }
+          } else {
+            alert("vui lòng bậc điện thoại len");
+          }
+        }
+        sendMessage(mobileTo, messenge) {
+          if (this.status) {
+            if (this.pin > 0) {
+              this.send.unshift(messenge);
+              mobileTo.receive.unshift(messenge);
+              this.pin--;
+            } else {
+              alert("ban can sac pin");
+            }
+          } else {
+            alert("vui lòng bậc điện thoại len");
+          }
+        }
+        receiveMessage(message) {
+          if (this.status) {
+            if (this.pin > 0) {
+              this.receive.unshift(message);
+              this.pin--;
+            } else {
+              alert("ban can sac pin");
+            }
+          } else {
+            alert("vui lòng bậc điện thoại len");
+          }
+        }
+        getSendMessage() {
+          if (this.status) {
+            if (this.pin > 0) {
+              this.pin--;
+              return this.send;
+            } else {
+              alert("ban can sac pin");
+            }
+          } else {
+            alert("vui lòng bậc điện thoại len");
+          }
+        }
+        getReceiveMessage() {
+          if (this.status) {
+            if (this.pin > 0) {
+              this.pin--;
+              return this.receive;
+            } else {
+              alert("ban can sac pin");
+            }
+          } else {
+            alert("Bật điện thoại lên rồi soạn tin");
+          }
+        }
+      }
+      let nokia = new Mobile(50, [], [], [], true);
+      let iphone = new Mobile(50, [], [], [], false);
+      let textareaNokia = document.getElementById("messageNokia");
+      let textareaIphone = document.getElementById("messageIphone");
+      const mainIphone = document.getElementById("displayIphone");
+      const mainNokia = document.getElementById("displayNokia");
+      ////   NOKIA
+      let pinN = document.getElementById("pinNokia");
+      pinN.value = nokia.pin + "%";
+      let clickCountN = 0;
+      function onoffNokia() {
+        if (clickCountN === 0) {
+          ofn.style.backgroundColor = "yellow";
+        } else if (clickCountN === 1) {
+          ofn.style.backgroundColor = "white";
+        }
+        clickCountN = (clickCountN + 1) % 2;
+        if (ofn.style.backgroundColor == "yellow") {
+          nokia.turnOn();
+        } else nokia.turnOff();
+        pinN.value = nokia.pin + "%";
+      }
+      function sendNokia() {
+        iphone.receiveMessage(textareaNokia.value);
+        pinN.value = nokia.pin + "%";
+      }
+      function receiveIphone() {
+        mainIphone.innerHTML +=
+          "tin nhắn từ nokia : " + iphone.getReceiveMessage().join("<br>");
+        pinN.value = nokia.pin + "%";
+      }
+      function resetMainIphone() {
+        mainIphone.innerHTML = "";
+        textareaIphone.value = "";
+      }
+      ///// IPHONE
+      let pinI = document.getElementById("pinIphone");
+      pinI.value = iphone.pin + "%";
+      function onoffIphone() {
+        if (clickCountN === 0) {
+          ofi.style.backgroundColor = "yellow";
+        } else if (clickCountN === 1) {
+          ofi.style.backgroundColor = "white";
+        }
+        clickCountN = (clickCountN + 1) % 2;
+        if (ofi.style.backgroundColor == "yellow") {
+          iphone.turnOn();
+        } else iphone.turnOff();
+        pinI.value = iphone.pin + "%";
+      }
 
-    }
-    function sendIphone()
-    {
-      nokia.receiveMessage(textareaIphone.value);
-    }
-    function receiveNokia()
-    {
-      mainNokia.innerHTML = nokia.getReceiveMessage().join('<br>');
-    }
-    function resetMainNokia()
-    {
-      mainNokia.innerHTML='';
-      textareaNokia.value ='';
-    }
-
-
-
-
-</script>
-</body>
+      function sendIphone() {
+        nokia.receiveMessage(textareaIphone.value);
+        pinI.value = iphone.pin + "%";
+      }
+      function receiveNokia() {
+        mainNokia.innerHTML +=
+          "tin nhắn từ iphone : " + nokia.getReceiveMessage().join("<br>");
+        pinI.value = iphone.pin + "%";
+      }
+      function resetMainNokia() {
+        mainNokia.innerHTML = "";
+        textareaNokia.value = "";
+      }
+    </script>
+  </body>
 </html>

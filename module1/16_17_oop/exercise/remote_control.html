@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    class Remote
+    {
+        constructor(ms,ck,vote) {
+            this.ms = ms;
+            this.ck = ck;
+            this.vote = vote;
+        }
+        on()
+        {
+            this.status = true;
+            flag = 1;
+        }
+        off()
+        {
+            flag = 0;
+            this.status = false;
+        }
+        convert_K(k)
+        {
+            this.ck = k;
+        }
+
+
+
+
+    }
+    let flag = 0;
+    class Tivi
+    {
+        constructor(ms,k,vote) {
+            this.k = k;
+            this.vote = vote;
+            this.ms = ms;
+        }
+        getk(remote)
+        {
+            if(this.remote.status)
+            {
+                if(this.remote.ck === 0)
+                {
+                    return this.k;
+                }else
+                {
+                    return this.remote.ck;
+                }
+            }else
+            {
+                console.log('tivi dang tat ban can bat titi truoc khi chuyen kenh')
+            }
+
+        }
+        getvote()
+        {
+            return this.vote;
+        }
+        setRemote(remote)
+        {
+            this.remote = remote;
+        }
+
+        checkOnOff(remote)
+        {
+            if(this.ms === this.remote.ms)
+            {
+                if(flag===1)
+                {
+                    if(this.remote.status )
+                    {
+                        console.log('tivi da duoc bat len');
+                    }else
+                    {
+                        console.log('tivi da duoc tat');
+                    }
+                }else
+                {
+                    console.log('tivi dang tat')
+                }
+
+            }
+        }
+        increase(remote)
+        {
+            if(this.remote.status)
+            {
+                this.vote+=this.remote.vote;
+            }else
+            {
+                console.log('ban can bac tivi de tang am luong')
+            }
+        }
+        decrease(remote)
+        {
+            if(this.remote.status)
+            {
+                this.vote-=this.remote.vote;
+            }else
+            {
+                console.log('ban can bac tivi de giam am luong')
+            }
+
+        }
+
+    }
+
+    let remote = new Remote('samsung',10,2,true);
+    let tivi = new Tivi('samsung',5,6);
+    tivi.setRemote(remote);
+    remote.on();
+    tivi.checkOnOff(remote);
+    console.log(tivi.getvote());
+    console.log(tivi.getk(remote));
+    tivi.increase(remote);
+    console.log(tivi.getvote());
+
+</script>
+</body>
+</html>

@@ -200,7 +200,7 @@
       }
       function receiveIphone() {
         mainIphone.innerHTML +=
-          "tin nhắn từ nokia : " + iphone.getReceiveMessage().join("<br>");
+           iphone.getReceiveMessage().join("<br>");
         pinN.value = nokia.pin + "%";
       }
       function resetMainIphone() {
@@ -229,7 +229,7 @@
       }
       function receiveNokia() {
         mainNokia.innerHTML +=
-          "tin nhắn từ iphone : " + nokia.getReceiveMessage().join("<br>");
+           nokia.getReceiveMessage().join("<br>");
         pinI.value = iphone.pin + "%";
       }
       function resetMainNokia() {

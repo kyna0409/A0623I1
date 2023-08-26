@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = [7,2,5,3,5,3];
+    let b=[7,2,5,6,6,4,8,3,5,3,45,3]
+    function remove(a, b)
+    {
+        let index;
+        let x =[];
+        x.push(...b);
+        for(let i = 0; i< b.length; i++)
+        {
+            for(let j = 0; j < a.length; j++)
+            {
+                if(b[i]===a[j])
+                {
+                    index = x.indexOf(a[j]);
+                    if(index!==-1)
+                    {
+                        x.splice(index,1);
+                    }
+                }
+            }
+        }
+       return x;
+    }
+    function result(arr)
+    {
+        let newArr = [];
+        for(let i=0; i< arr.length; i++)
+        {
+            if(newArr.indexOf(arr[i])===-1)
+            {
+                newArr.push(arr[i]);
+            }
+        }
+        console.log(newArr);
+    }
+    result(remove(a,b).sort(function (a,b)
+    {
+        return a-b;
+    }));
+
+</script>
+</body>
+</html>

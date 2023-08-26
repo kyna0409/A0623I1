@@ -7,24 +7,22 @@
 <body onload="docReady()">
 <img id="nobita" src="https://gamehow.net/upload/suckhoe_post/images/2022/06/02/348/nhung-bi-an-doreamon-va-nobita-2.jpg" style="position:absolute;left:0; top:0;" height="200" width="200"/>
 <script>
+    let element = document.getElementById("nobita");
     function upArrowPressed()
     {
-        let element = document.getElementById("nobita");
         element.style.top=parseInt(element.style.top) - 5 +'px';
     }
     function downArrowPressed()
     {
-        let element = document.getElementById("nobita");
+
         element.style.top = parseInt(element.style.top) + 5+ 'px';
     }
     function leftArrowPressed()
     {
-        var element = document.getElementById("nobita");
         element.style.left = parseInt(element.style.left) -5 +'px';
     }
     function rightArrowPressed()
     {
-        var element = document.getElementById("nobita");
         element.style.left = parseInt(element.style.left)+5+'px';
     }
     function moveSelection(evt) {

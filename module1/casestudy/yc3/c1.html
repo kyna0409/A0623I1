@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = [1,2,3];
+    let b = [];
+    function tong(n)
+    {
+        let sum = 0;
+        for(let i=0; i<n+1; i++)
+        {
+            sum+=a[i];
+        }
+        return sum;
+    }
+    console.log(tong(0));
+    for(let i = 0; i< a.length; i++)
+    {
+        b.push(tong(i));
+    }
+    console.log(b.toString())
+</script>
+</body>
+</html>

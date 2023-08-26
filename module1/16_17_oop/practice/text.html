@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Ảnh trong JavaScript</title>
+</head>
+<body>
+<input type="file" id="fileInput">
+<!--<button onclick="uploadImage()">Tải Lên Ảnh</button>-->
+
+<!--<div id="imagePreview"></div>-->
+
+<script>
+    // function uploadImage() {
+    //     const fileInput = document.getElementById('fileInput');
+    //     const imagePreview = document.getElementById('imagePreview');
+    //
+    //     const file = fileInput.files[0];
+    //
+    //     if (file) {
+    //         // Kiểm tra nếu là tệp hình ảnh
+    //         if (file.type.startsWith('image/')) {
+    //             const reader = new FileReader();
+    //
+    //             reader.onload = function (e) {
+    //                 const image = new Image();
+    //                 image.src = e.target.result;
+    //                 imagePreview.innerHTML = '';
+    //                 imagePreview.appendChild(image);
+    //             };
+    //
+    //             reader.readAsDataURL(file);
+    //         } else {
+    //             alert('Chỉ chấp nhận tệp hình ảnh.');
+    //         }
+    //     } else {
+    //         alert('Vui lòng chọn một tệp để tải lên.');
+    //     }
+    // }
+    let file = document.getElementById('fileInput');
+    console.log(file.value);
+</script>
+</body>
+</html>

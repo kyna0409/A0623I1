@@ -5,94 +5,52 @@
     <title>Title</title>
 </head>
 <body>
-<canvas id ='myCanvas' width="200" height="200" style="border: 3px #0000FF solid"></canvas>
+<img id = 'myImage' onclick="turnOff_turnOn()" src="../img/pic_bulboff.gif" height="180" width="100"/>
+<h2 id ='notify'>Đèn đang tắt</h2>
 <script>
-  let SwitchButton = function ()
+  class Lamp
   {
-
-    this.setLamp = function (lamp)
-    {
-      this.lamp = lamp;
-    }
-
-    this.connectToLamp = function (lamp)
-    {
-
-      if(this.status && this.lamp.status)
-      {
-        return 'rgb('+180+','+180+','+10+')';
+      constructor(status) {
+          this.status = status;
       }
-      else
+      turnoff_turnon()
       {
-        return  'rgb('+0+','+0+','+0+')';
+          this.status = ! this.status;
       }
-    }
-    this.switchOff = function ()
-    {
-      this.status = false;
-    }
-
-    this.switchOn = function()
-    {
-      this.status = true;
-    }
   }
-  let ElectricLamp = function (status)
+  class Switch_lamp{
+      constructor(status) {
+          this.status = status;
+      }
+      set_lamp(lamp)
+      {
+          this.lamp = lamp;
+      }
+      turnon_turnoff(lamp)
+      {
+          let image = document.getElementById('myImage');
+          let announce = document.getElementById('notify');
+          if(this.status && this.lamp.status)
+          {
+              image.src = "../img/pic_bulbon.gif";
+              announce.innerHTML = 'Đèn đang bật'
+              this.lamp.turnoff_turnon();
+          }
+          else
+          {
+              image.src = "../img/pic_bulboff.gif";
+              announce.innerHTML = 'Đèn đang tắt'
+              this.lamp.turnoff_turnon();
+          }
+      }
+  }
+  let lamp = new Lamp(false);
+  let switch_lamp = new Switch_lamp(true);
+  switch_lamp.set_lamp(lamp);
+  function turnOff_turnOn()
   {
-
-    this.turnOff = function ()
-    {
-      this.status = false;
-    }
-
-    this.turnOn = function ()
-    {
-      this.status = true;
-    }
+      switch_lamp.turnon_turnoff(lamp);
   }
-  let create = function ()
-  {
-    let c = document.getElementById('myCanvas').getContext('2d');
-    c.beginPath();
-    c.arc(95,90,40,0,2*Math.PI);
-    c.fillStyle = s.connectToLamp(lamp)
-    c.fill();
-  }
-
-  let lamp = new ElectricLamp();
-  let s = new SwitchButton();
-  s.setLamp(lamp);
-
-  // s.switchOff()
-  // lamp.turnOff();
-  // console.log(s.connectToLamp(lamp));
-  // create();
-
-  s.switchOn()
-  lamp.turnOn();
-  console.log(s.connectToLamp(lamp));
-  create();
-  //
-  // s.switchOff()
-  // lamp.turnOn();
-  // console.log(s.connectToLamp(lamp));
-  // create();
-  //
-  // s.switchOn()
-  // lamp.turnOn();
-  // console.log(s.connectToLamp(lamp));
-  // create();
-  //
-  // s.switchOn()
-  // lamp.turnOff();
-  // console.log(s.connectToLamp(lamp));
-  // create();
-  //
-  // s.switchOn()
-  // lamp.turnOn();
-  // console.log(s.connectToLamp(lamp));
-  // create();
-
 </script>
 </body>
 </html>

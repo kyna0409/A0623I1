@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+        header{
+            align-content: center;
+            display: flex;
+            justify-content: center;
+        }
+        .container
+        {
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            background: rgb(2,20,100);
+        }
+        .form_container{
+            display: initial;
+            margin-top: 80px;
+            height: 80vh;
+            width: 180vh;
+            background: white;
+            justify-content: center;
+            border-radius: 2%;
+            border: 4px #435d7d solid;
+            padding-top: 10px;
+            align-content: center;
+        }
+        .form_save{
+            display: none;
+        }
+        button:first-child{
+            color: white;
+            background: darkgreen;
+            width: 100px;
+        }
+        button:last-child{
+            color: white;
+            background: red;
+            width: 100px;
+        }
+        tr:hover{
+            background: yellow;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top:29px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<header >
+    <h1>DISPLAY ALL PRODUCT</h1>
+</header>
+<div class="container">
+    <div class="form_container">
+        <form class="form_save">
+            <input type="hidden" id="idProduct">
+            <input type="text" placeholder="Name Product" id="nameProduct">
+            <input type="number" placeholder="Amount Product" id="amountProduct">
+            <input type="text" placeholder="Price of a Product" id="priceProduct">
+            <input type="file" id="fileInput">
+<!--            <button onclick="uploadImage()">UPLOAD</button>-->
+            <button type="button" onclick="saveProduct()">SAVE</button>
+        </form>
+        <div class="add_div">
+            <label style="font-family: 'Times New Roman';font-size: 20px">All New Product
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <button onclick="add()">Add+</button>
+        </div>
+        <table>
+            <thead>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>AMOUNT</th>
+                <th>PRICE</th>
+                <th>TOTAL</th>
+                <th>IMAGE</th>
+                <th>ACTION</th>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    function add()
+    {
+        document.querySelector('.form_save').style.display = 'block';
+        document.querySelector('.add_div').style.display = 'none';
+    }
+    class Product{
+        constructor(id, name, amount, price, total, image) {
+            this.id = id;
+            this.name = name;
+            this.amount = amount;
+            this.price = price;
+            this.total = total;
+            this.image = image;
+        }
+    }
+    class ProductService{
+        products = [
+            {
+                id : 1,
+                name : 'pepsi',
+                amount : 2,
+                price : 2000,
+                total : 4000,
+                image : '<img src="../img/Pepsi.png" height="100" width="100"/>'
+            },
+            {
+                id : 2,
+                name : 'coca',
+                amount : 3,
+                price : 30000,
+                total : 90000,
+                image :' <img src="../img/coca.png" height="100" width="100"/>'
+            }
+        ];
+        findAll()
+        {
+            return this.products;
+        }
+        getProductById(id) {
+            return this.products.findIndex(e => e.id === id);
+        }
+
+        deleteById(id)
+        {
+           const index = this.getProductById(id)
+            if(index>-1)
+            {
+                this.products.splice(index,1);
+            }
+        }
+        total(amount, price)
+        {
+            return amount * price;
+        }
+        // upload(imagePreview) {
+        //     const file = fileInput.files[0];
+        //
+        //     if (file) {
+        //         // Kiểm tra nếu là tệp hình ảnh
+        //         if (file.type.startsWith('image/')) {
+        //             const reader = new FileReader();
+        //
+        //             reader.onload = function (e) {
+        //                 const image = new Image();
+        //                 image.src = e.target.result;
+        //                 imagePreview.innerHTML = '';
+        //                 imagePreview.appendChild(image);
+        //             };
+        //
+        //             reader.readAsDataURL(file);
+        //         } else {
+        //             alert('Chỉ chấp nhận tệp hình ảnh.');
+        //         }
+        //     } else {
+        //         alert('Vui lòng chọn một tệp để tải lên.');
+        //     }
+        // }
+
+
+        getImage()
+        {
+            let file = document.getElementById('fileInput');
+            let result = file.value.slice(12);
+            return '<img src="../img/'+result+'" height="100" width="100">';
+
+        }
+        save(p) {
+            const index = this.getProductById(p.id)
+            if(p.id >0){
+                p.total = this.total(p.amount, p.price);
+                p.image = this.getImage()
+                this.products.splice(index,1,p);
+            }
+            else {
+                p.id = this.products.at(-1).id +1;
+                p.total = this.total(p.amount, p.price);
+                p.image = this.getImage()
+                this.products.push(p);
+
+            }
+        }
+    }
+    let ps = new ProductService();
+    function displayAll() {
+        let res = '';
+        const products = ps.findAll();
+        for (let i = 0; i < products.length; i++) {
+            res += `
+                <tr>
+                    <td>${products[i].id}</td>
+                    <td>${products[i].name}</td>
+                    <td>${products[i].amount}</td>
+                    <td>${products[i].price}</td>
+                    <td>${products[i].total}</td>
+                    <td>${products[i].image}</td>
+                    <td>
+                        <div>
+                             <button onclick="showProduct(${products[i].id}, '${products[i].name}', '${products[i].amount}', '${products[i].price}')">Edit</button>
+                            <button onclick='deleteProduct(${products[i].id})'>Delete</button>
+                        </div>
+                    </td>
+                </tr>
+            `;
+        }
+
+        document.querySelector("tbody").innerHTML = res;
+    }
+    displayAll();
+    function deleteProduct(id){
+        const c = confirm("Are you sure to delete this product");
+        if(c){
+            ps.deleteById(id);
+            displayAll();
+        }
+    }
+    function showProduct(id, name, amount, price){
+        document.querySelector('.form_save').style.display = 'block';
+        document.querySelector('.add_div').style.display = 'none';
+        idProduct.value = id;
+        nameProduct.value = name;
+        amountProduct.value = amount;
+        priceProduct.value= price;
+    }
+    function reload()
+    {
+        idProduct.value = '';
+        nameProduct.value = '';
+        amountProduct.value = '';
+        priceProduct.value= '';
+        fileInput.value = '';
+    }
+    function saveProduct(){
+        const  p = new Product(idProduct.value, nameProduct.value, amountProduct.value, priceProduct.value);
+        console.log(ps.getImage());
+        if(check())
+        {
+            ps.save(p);
+            document.querySelector('.form_save').style.display = 'none';
+            document.querySelector('.add_div').style.display = 'block';
+            displayAll();
+            reload();
+        }
+
+    }
+    function check()
+    {
+        if(nameProduct.value === '')
+        {
+            alert('bạn hãy nhập tên sản phẩm');
+            return false;
+        }else
+        if(amountProduct.value === '')
+        {
+            alert('bạn hãy nhập số lượng sản phẩm');
+            return false;
+        }else
+        if(priceProduct.value === '')
+        {
+            alert('bạn hãy nhập giá của một sản phẩm');
+            return false;
+        }
+        return true;
+    }
+
+
+</script>
+</body>
+</html>

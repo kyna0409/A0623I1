@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let s=prompt('nhap chuoi');
+  let st=s.split('');
+
+  function check(s)
+  {
+    let count=0;
+    for(let i=0;i<st.length;i++)
+    {
+      if('QWERTYUIOPASDFGHJKLZXCVBNM'.includes(s[i]))
+      {
+        count++;
+      }
+    }
+    if(count!==0)
+    {
+      console.log(count);
+    }else
+    {
+      console.log('The String is not contain upper char');
+    }
+  }
+  console.log(check(st));
+
+
+</script>
+</body>
+</html>

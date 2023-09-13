@@ -1,61 +1,106 @@
-<!doctype html>
+<!--<!doctype html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport"-->
+<!--          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+<!--    <title>Document</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<ol>-->
+<!--    <li>Cafe</li>-->
+<!--    <li>Cam vắt</li>-->
+<!--    <li>Nước ép cà rốt</li>-->
+<!--    <li>Nước ép cà chua</li>-->
+<!--    <li>Nước lọc</li>-->
+<!--    <li>Nước dừa</li>-->
+<!--</ol>-->
+<!--<script>-->
+<!--    let a,b;-->
+<!--do{-->
+<!--    a = prompt('nhập món bạn chọn');-->
+<!--    switch (a)-->
+<!--    {-->
+<!--        case '1':-->
+<!--            alert('price: 1000');-->
+<!--            b = prompt('ban hay nhap amount :');-->
+<!--            alert(parseInt(b)*1000);-->
+<!--            break;-->
+<!--        case '2':-->
+<!--            alert('price: 2000');-->
+<!--            b = prompt('ban hay nhap amount :');-->
+<!--            alert(parseInt(b)*2000);-->
+<!--            break;-->
+<!--        case '3':-->
+<!--            alert('price: 3000');-->
+<!--            b = prompt('ban hay nhap amount :');-->
+<!--            alert(parseInt(b)*3000);-->
+<!--            break;-->
+<!--        case '4':-->
+<!--            alert('price: 4000');-->
+<!--            b = prompt('ban hay nhap amount :');-->
+<!--            alert(parseInt(b)*4000);-->
+<!--            break;-->
+<!--        case '5':-->
+<!--            alert('price: 5000');-->
+<!--            b = prompt('ban hay nhap amount :');-->
+<!--            alert(parseInt(b)*5000);-->
+<!--            break;-->
+<!--        case '6':-->
+<!--            alert('price: 6000');-->
+<!--            b = prompt('ban hay nhap amount :');-->
+<!--            alert(parseInt(b)*6000);-->
+<!--            break;-->
+<!--        case '7':-->
+<!--            alert('thoat khoi goi mon');-->
+<!--    }-->
+<!--}while(a!=='7');-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Title</title>
 </head>
 <body>
-<ol>
-    <li>Cafe</li>
-    <li>Cam vắt</li>
-    <li>Nước ép cà rốt</li>
-    <li>Nước ép cà chua</li>
-    <li>Nước lọc</li>
-    <li>Nước dừa</li>
-</ol>
 <script>
-    let a,b;
-do{
-    a = prompt('nhập món bạn chọn');
-    switch (a)
-    {
-        case '1':
-            alert('price: 1000');
-            b = prompt('ban hay nhap amount :');
-            alert(parseInt(b)*1000);
-            break;
-        case '2':
-            alert('price: 2000');
-            b = prompt('ban hay nhap amount :');
-            alert(parseInt(b)*2000);
-            break;
-        case '3':
-            alert('price: 3000');
-            b = prompt('ban hay nhap amount :');
-            alert(parseInt(b)*3000);
-            break;
-        case '4':
-            alert('price: 4000');
-            b = prompt('ban hay nhap amount :');
-            alert(parseInt(b)*4000);
-            break;
-        case '5':
-            alert('price: 5000');
-            b = prompt('ban hay nhap amount :');
-            alert(parseInt(b)*5000);
-            break;
-        case '6':
-            alert('price: 6000');
-            b = prompt('ban hay nhap amount :');
-            alert(parseInt(b)*6000);
-            break;
-        case '7':
-            alert('thoat khoi goi mon');
+    function numberToWord(num){
+        switch (num){
+            case 1:
+                return "một";
+            case 2:
+                return "hai";
+            case 3:
+                return "ba";
+            case 4:
+                return "bốn";
+            case 5:
+                return "năm";
+            case 6:
+                return "sáu";
+            case 7:
+                return "bảy";
+            case 8:
+                return "tám";
+            case 9:
+                return "chín";
+            case 10:
+                return "mười";
+        }
+
+        return "không";
     }
-}while(a!=='7');
+
+    let result = "";
+    let numberInput = prompt("Enter your number");
+    numberInput.split("").forEach(e => {
+        result += numberToWord(Number(e)) + " ";
+    });
+
+    console.log(result);
 </script>
 </body>
 </html>

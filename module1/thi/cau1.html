@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a=[];
+    let chan=0,le=0;
+    for(let i=0;i<6;i++)
+    {
+        a.push(parseInt(prompt('nhap phan tu')));
+    }
+    console.log(a);
+    for(let i=0;i<a.length;i++)
+    {
+        if(a[i]%2===0)
+        {
+            chan+=a[i];
+        }else{
+            le+=a[i];
+        }
+    }
+    console.log(chan-le);
+</script>
+</body>
+</html>

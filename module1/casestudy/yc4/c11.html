@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str = 'tRuong      TaN HAI';
+    let count = 0;
+    function chuanhoa(str)
+    {
+        str = str.toLowerCase();
+        let a = str.split('');
+        let x =[];
+        for(let i=0; i<a.length; i++)
+        {
+            if(a[i-1]===" "||a[i]===a[0])
+            {
+                x.push(a[i].toUpperCase());
+            }else
+            if(a[i]===' '&&a[i+1]===' ')
+            {
+                a[i]=' ';
+            }
+            else{
+                x.push(a[i]);
+            }
+        }
+        return x.join('');
+    }
+    function findLong(str)
+    {
+       let a = str.split(' ');
+       let max = a[0].length;
+       let index = 0;
+       for(let i=0; i< a.length; i++)
+       {
+          if(a[i].length >= max)
+          {
+              index = i;
+          }
+       }
+       return a[index];
+    }
+    console.log(str);
+    //str = chuanhoa(str).replace(/\s+/g,' ').trim();
+    str = chuanhoa(str).replace(/\s+/g,' ').trim();
+    console.log(str);
+    console.log('chu co do dai dai nhat la : '+ findLong(str));
+</script>
+</body>
+</html>

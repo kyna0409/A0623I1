@@ -1,0 +1,41 @@
+table{
+    width: 400px;
+    height: 250px;
+    border-collapse: collapse;
+
+}
+tr  td
+{
+    border: 2px purple solid;
+}
+th{
+    border: 2px purple solid;
+    background-color: chocolate;
+    color: whitesmoke;
+}
+tr:nth-child(odd)
+{
+    background-color: palegoldenrod;
+}
+h1{
+    color: chocolate;
+
+}
+td:first-child{
+    text-align: center;
+    width: 5px;
+}
+img{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 200px;
+    top: 50px;
+
+}
+body{
+    display: flex;
+    background-color: #FFEDCA;
+    justify-content: center;
+    align-content: center;
+}

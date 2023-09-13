@@ -8,20 +8,29 @@
 <script>
     let a = [1,2,3];
     let b = [];
-    function tong(n)
-    {
-        let sum = 0;
-        for(let i=0; i<n+1; i++)
+    // function tong(n)
+    // {
+    //     let sum = 0;
+    //     for(let i=0; i<n+1; i++)
+    //     {
+    //         sum+=a[i];
+    //     }
+    //     return sum;
+    // }
+    // console.log(tong(0));
+    // for(let i = 0; i< a.length; i++)
+    // {
+    //     b.push(tong(i));
+    // }
+     for (let i=0; i<a.length; i++)
         {
-            sum+=a[i];
+            if(i===0)
+            {
+                b[i]=a[i];
+            }else{
+                b[i]=b[i-1]+a[i];
+            }
         }
-        return sum;
-    }
-    console.log(tong(0));
-    for(let i = 0; i< a.length; i++)
-    {
-        b.push(tong(i));
-    }
     console.log(b.toString())
 </script>
 </body>

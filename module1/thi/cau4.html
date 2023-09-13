@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+        header{
+            align-content: center;
+            display: flex;
+            justify-content: center;
+        }
+        .container
+        {
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            background: rgb(2,20,100);
+        }
+        .form_container{
+            display: initial;
+            margin-top: 80px;
+            height: 80vh;
+            width: 180vh;
+            background: white;
+            justify-content: center;
+            border-radius: 2%;
+            border: 4px #435d7d solid;
+            padding-top: 10px;
+            align-content: center;
+        }
+        .form_save{
+            display: none;
+        }
+        button:first-child{
+            color: white;
+            background: darkgreen;
+            width: 100px;
+        }
+        button:last-child{
+            color: white;
+            background: red;
+            width: 100px;
+        }
+        tr:hover{
+            background: yellow;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top:29px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<header >
+    <h1>DISPLAY ALL PRODUCT</h1>
+</header>
+<div class="container">
+    <div class="form_container">
+        <form class="form_save">
+            <input type="text" placeholder="Ma dien thoai" id="ma">
+            <input type="text" placeholder="Ten dien thoai" id="ten">
+            <input type="text" placeholder="Hang dien thoai" id="hang">
+            <input type="number" placeholder="Gia" id="gia">
+            <button type="button" onclick="savePhones()">SAVE</button>
+        </form>
+        <div class="add_div">
+            <label style="font-family: 'Times New Roman';font-size: 20px">All New Product
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <button onclick="add()">Add+</button>
+            <button onclick="displaySort()">Sort+</button>
+        </div>
+        <table>
+            <thead>
+            <th>Mã điện thoại</th>
+            <th>Tên điện thoại</th>
+            <th>Hãng sản xuất</th>
+            <th>Gía</th>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    function add()
+    {
+        document.querySelector('.form_save').style.display = 'block';
+        document.querySelector('.add_div').style.display = 'none';
+    }
+    class Phone{
+        constructor(ma,ten,hang,gia) {
+            this.ma = ma;
+            this.ten = ten;
+            this.hang = hang;
+            this.gia = gia;
+        }
+    }
+    class chucnang{
+        phones=[
+            {
+                ma:'MS1',
+                ten:'IPHONE',
+                hang:'APPLE',
+                gia:'12399',
+            },
+            {
+                ma:'MS2',
+                ten:'SAMSUNG',
+                hang:'ANDROID',
+                gia:'244323',
+            }
+        ];
+        findALL()
+        {
+            return this.phones;
+        }
+        xapsep()
+        {
+            let r=[];
+            for(let i=0; i<this.phones.length;i++)
+            {
+                r.push(this.phones[i].ten);
+            }
+            let t=r.sort(function (s,t){
+                var a= s.toLowerCase();
+                var b= t.toLowerCase();
+                if(a>b) return 1;
+                if(a<b) return -1;
+                return 0;
+            })
+            let x=[];
+            for(let i=0;i<this.phones.length;i++)
+            {
+                for(let j=0;j< this.phones.length;j++)
+                {
+                    if(t[i]===this.phones[j].ten)
+                    {
+                        x.push(this.phones[j]);
+                    }
+                }
+            }
+           return x;
+
+        }
+
+        save(p) {
+                this.phones.push(p);
+        }
+    }
+    let ps = new chucnang();
+    function display() {
+        let res = '';
+        const phones = ps.findALL();
+        for (let i = 0; i < phones.length; i++) {
+            res += `
+                <tr>
+                    <td>${phones[i].ma}</td>
+                    <td>${phones[i].ten}</td>
+                    <td>${phones[i].hang}</td>
+                    <td>${phones[i].gia}</td>
+                </tr>
+            `;
+        }
+
+        document.querySelector("tbody").innerHTML = res;
+    }
+    function savePhones()
+    {
+        const p = new Phone(ma.value,ten.value,hang.value,gia.value);
+        ps.save(p);
+        document.querySelector('.form_save').style.display = 'none';
+        document.querySelector('.add_div').style.display = 'block';
+        display();
+    }
+    display();
+    function Sort()
+    {
+        let res = '';
+        const phones = ps.xapsep();
+        for (let i = 0; i < phones.length; i++) {
+            res += `
+                <tr>
+                    <td>${phones[i].ma}</td>
+                    <td>${phones[i].ten}</td>
+                    <td>${phones[i].hang}</td>
+                    <td>${phones[i].gia}</td>
+                </tr>
+            `;
+        }
+
+        document.querySelector("tbody").innerHTML = res;
+    }
+    function displaySort()
+    {
+        Sort();
+    }
+
+</script>
+</body>
+</html>

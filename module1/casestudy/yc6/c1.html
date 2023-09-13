@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="c1.css">
+    <title>Title</title>
+</head>
+<body>
+<h1>Xây dựng hệ thống quản lý học viên CODEGYM</h1>
+<div class="container">
+    <button type="button" onclick="addSv()">Thêm mới học viên</button>
+    <button type="button" onclick="editSv()">Sửa thông tin học viên</button>
+    <button type="button" onclick="deleteSv()">Xóa học viên</button>
+    <table>
+        <thead>
+        <tr>
+            <th>Mã học viên</th>
+            <th>Tên</th>
+            <th>Lớp</th>
+            <th>Email</th>
+            <th>Ngày sinh</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</div>
+<script>
+    class SV{
+        constructor(mhv,name,lop,email,day){
+            this.mhv = mhv;
+            this.name = name;
+            this.lop = lop;
+            this.email = email;
+            this.day = day;
+        }
+    }
+    class Svtt{
+        students = [
+            {
+                mhv:"HV-0001",
+                name:'Nguyen van a',
+                lop:'C1234',
+                email:'0409kyna@gmail.com',
+                day:"13/11/2002"
+            },
+            {
+                mhv:"HV-0002",
+                name:'Nguyen van b',
+                lop:'C1233',
+                email:'0402kyna@gmail.com',
+                day:"13/11/2003"
+            }
+        ];
+        findAll()
+        {
+            return this.students;
+        }
+        getBymhv(mhv)
+        {
+            return this.students.findIndex(e =>e.mhv===mhv);
+        }
+
+        edit(p)
+        {   let index = this.students.findIndex(e => e.mhv = p.mhv);
+            console.log(index)
+            if(p.mhv)
+            {
+                this.students.splice(index,1,p);
+            }
+        }
+
+        add(p)
+        {
+            this.students.push(p);
+        }
+        deleteBymhv(mhv)
+        {
+            const  index = this.getBymhv(mhv);
+            if(index>-1)
+            {   let c = confirm('ban co chac muon xoa khong');
+                if(c)
+                {
+                    this.students.splice(index,1);
+                }
+            }else
+            {
+                alert('ma hoc vien ko ton tai')
+            }
+        }
+
+    }
+    let sv = new Svtt();
+    function displayAll()
+    {
+        let res = '';
+        const students = sv.findAll(); 
+        for(let i=0; i<students.length; i++)
+        {
+            res+=`<tr>
+                <td>${students[i].mhv}</td>
+                <td>${students[i].name}</td>
+                <td>${students[i].lop}</td>
+                <td>${students[i].email}</td>
+                <td>${students[i].day}</td>
+                </tr>`;
+        }
+        document.querySelector('tbody').innerHTML = res;
+    }
+    displayAll();
+    function deleteSv()
+    {
+        let a = prompt('hay nhap mhv can xoa vao day : ');
+        sv.deleteBymhv(a);
+        displayAll();
+    }
+    function addSv()
+    {
+        let a = prompt('nhap ma hoc vien :');
+        let b = nhapten();
+        let c = prompt('nhap lop hoc vien :');
+        let email = prompt('nhap email hoc vien :');
+        let d = email +'@gmail.com';
+        let dd = prompt('nhap ngay sinh :');
+        let mm = prompt('nhap thang sinh :');
+        let yyyy = prompt('nhap nam sinh :');
+        let e = convertDayOfBirth(dd,mm,yyyy);
+        let p = new SV(a,b,c,d,e);
+        sv.add(p);
+        displayAll();
+    }
+    function editSv()
+    {
+        let a = prompt('hay nhap mhv can sua vao day : ');
+        let index = sv.getBymhv(a);
+        if(index>-1)
+        {
+            let b = nhapten();
+            let c = prompt('nhap lop hoc vien :');
+            let d = prompt('nhap email hoc vien :');
+            let dd = prompt('nhap ngay sinh :');
+            let mm = prompt('nhap thang sinh :');
+            let yyyy = prompt('nhap nam sinh :');
+            let e = convertDayOfBirth(dd,mm,yyyy);
+            let p = new SV(a,b,c,d,e);
+            sv.edit(p,index);
+            displayAll();
+        }else{
+            alert('ma hoc vien khong ton tai');
+        }
+
+    }
+    function convertDayOfBirth(dd,mm,yyyy)
+    {
+        // var today = new Date();
+        //  dd = today.getDate();
+        //  mm = today.getMonth() + 1; //January is 0!
+        //  yyyy = today.getFullYear();
+        // if (dd < 10) {
+        //     dd = '0' + dd;
+        // }
+        // if (mm < 10) {
+        //     mm = '0' + mm;
+        // }
+        if (dd < 10) {
+                dd = '0' + dd;
+            }
+         if (mm < 10) {
+              mm = '0' + mm;
+            }
+
+        let today = dd + '/' + mm + '/' + yyyy;
+        return today;
+    }
+    function checkname(str)
+    {
+        let count = 0;
+        for(let i=0; i<str.length; i++)
+        {
+            if(str.charAt(i)==='')
+            {
+                count+=1;
+            }
+        }
+        if(str.length-count> 50)
+        {
+             alert('ten hoc vien da vuot qua so ki tu quy dinh');
+             return false;
+        }
+        return true;
+    }
+    function nhapten()
+    {
+        let name  ;
+        do{
+            name = prompt('nhap ten hoc vien') ;
+              if(checkname(name))
+              {
+                  return name;
+              }
+        }while (checkname(name));
+    }
+    function nhapmhv()
+    {
+        
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            table-layout: fixed;
+        }
+
+        th {
+            border: 1px solid;
+        }
+
+        table th:last-child {
+            width: 10%;
+        }
+
+        td {
+            border: 1px solid;
+        }
+
+
+        label {
+            display: inline-block;
+            width: 100px;
+        }
+
+        fieldset {
+            margin-top: 20px;
+            display: none;
+        }
+
+        fieldset div {
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            padding-left: 100px;
+        }
+
+        small {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<button onclick="addNewStudent()">Add New</button>
+
+<fieldset>
+    <legend>Add new student</legend>
+    <input type="hidden" id="_id" value="0">
+    <div>
+        <label for="code">Code</label><input id="code">
+        <small id="smCode" style="display: none">Code is invalid</small>
+    </div>
+    <div>
+        <label for="_name">Name</label><input id="_name">
+        <small id="smName" style="display: none">Name is invaild</small>
+    </div>
+    <div>
+        <label for="_class">Class</label><input id="_class">
+    </div>
+    <div>
+        <label for="email">Email</label><input id="email">
+    </div>
+    <div>
+        <label for="birthday">Birthday</label>
+        <input type="text" id="birthday" pattern="\d{1,2}/\d{1,2}/\d{4}" placeholder="dd/mm/yyyy">
+        <small id="smBirthday" style="display: none">Birthday is invalid</small>
+    </div>
+    <div>
+        <label for="module">Module</label><input id="module" type="number">
+        <small id="smModule" style="display: none">Module is invalid</small>
+    </div>
+    <div class="btn">
+        <button onclick="saveStudent()">Save</button>
+        <button onclick="fieldset.style.display='none'">Cancel</button>
+    </div>
+</fieldset>
+
+<table>
+    <thead>
+    <tr>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Class</th>
+        <th>Email</th>
+        <th>Birthday</th>
+        <th>Module</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+</body>
+<script>
+    const fieldset = document.querySelector("fieldset");
+    const legend = document.querySelector("legend")
+
+    class Student {
+        constructor(id, code, name, _class, email, birthday, module) {
+            this.id = id;
+            this.code = code;
+            this.name = name;
+            this._class = _class;
+            this.email = email;
+            this.birthday = birthday;
+            this.module = module;
+        }
+    }
+
+    let students = [
+        {
+            id: 1,
+            code: 'HV-0001',
+            name: 'Nguyen Van A',
+            _class: 'C1022G1',
+            email: 'nguyenvana@gmail.com',
+            birthday: '01/01/2004',
+            module: '1'
+        },
+        {
+            id: 2,
+            code: 'HV-0002',
+            name: 'Nguyen Van B',
+            _class: 'C1122G1',
+            email: 'nguyenvanb@gmail.com',
+            birthday: '01/02/2004',
+            module: '2'
+        },
+        {
+            id: 3,
+            code: 'HV-0003',
+            name: 'Nguyen Van C',
+            _class: 'C1222G1',
+            email: 'nguyenvanc@gmail.com',
+            birthday: '01/03/2004',
+            module: '3'
+        }
+    ]
+
+    //region  service
+    function save(student) {
+        if (student.id > 0) {
+            const index = students.findIndex(s => s.id == student.id);
+            students[index] = student;
+        } else {
+            const lastId = students.at(-1).id;
+            student.id = lastId + 1;
+            students.push(student);
+        }
+    }
+
+    function deleteById(id) {
+        const index = students.findIndex(s => s.id === id);
+        students.splice(index, 1);
+    }
+
+    //endregion
+    function listAll() {
+        let res = '';
+
+        for (let i = 0; i < students.length; i++) {
+            res += `
+            <tr>
+            <td>${students[i].code}</td>
+            <td>${students[i].name}</td>
+            <td>${students[i]._class}</td>
+            <td>${students[i].email}</td>
+            <td>${students[i].birthday}</td>
+            <td>${students[i].module}</td>
+            <td>
+            <button onclick="editStudent(${students[i].id},'${students[i].code}','${students[i].name}','${students[i]._class}'
+            ,'${students[i].email}','${students[i].birthday}','${students[i].module}')">Edit</button>
+            <button onclick='deleteStudent(${students[i].id})'>Delete</button>
+            </td>
+             </tr>
+            `;
+        }
+
+        document.querySelector('tbody').innerHTML = res;
+    }
+
+    function editStudent(id, code_, name_, class_, email_, birthday_, module_) {
+        fieldset.style.display = 'block';
+        legend.textContent = 'Edit Student';
+        _id.value = id;
+        code.value = code_;
+        _name.value = name_;
+        _class.value = class_;
+        email.value = email_;
+        birthday.value = birthday_;
+        module.value = module_;
+    }
+
+    function addNewStudent() {
+        fieldset.style.display = 'block';
+        legend.textContent = 'Add New Student';
+    }
+
+    function deleteStudent(id) {
+        const c = confirm('Are you sure to delete');
+        if (c) {
+            deleteById(id);
+            listAll();
+        }
+    }
+
+    function saveStudent() {
+        if (validStudent()) {
+            const id = _id.value;
+            const code_ = code.value;
+            const name_ = _name.value;
+            const _class_ = _class.value;
+            const email_ = email.value;
+            const birthday_ = birthday.value;
+            const module_ = module.value;
+
+            const student = new Student(id, code_, name_, _class_, email_, birthday_, module_);
+            save(student);
+            listAll();
+            reset();
+            fieldset.style.display = 'none';
+        }
+    }
+
+    function validStudent() {
+        if (!/HV-\w{4}/.test(code.value)) {
+            smCode.style.display = 'inline';
+            return false;
+        }
+
+        console.log(_name.value.length);
+        if (_name.value.length === 0 || _name.value.length > 50) {
+            smName.style.display = 'inline';
+            return false;
+        }
+
+        if (+module.value === 0 || +module.value > 6) {
+            smModule.style.display = 'inline';
+            return false;
+        }
+
+        const birthdate = new Date(birthday.value);
+        if (birthdate.toString() === 'Invalid Date') {
+            smBirthday.style.display = 'inline';
+            return false;
+        }
+
+        return true;
+    }
+
+    function reset() {
+        _id.value = 0;
+        code.value = '';
+        _name.value = '';
+        _class.value = '';
+        email.value = '';
+        birthday.value = '';
+        module.value = '';
+        smCode.style.display = 'none';
+        smName.style.display = 'none';
+        smBirthday.style.display = 'none';
+        smModule.style.display = 'none';
+    }
+
+    listAll();
+
+</script>
+</html>

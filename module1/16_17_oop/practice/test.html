@@ -2,22 +2,67 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
+<canvas id="myCanvas" width="200" height="120" style="border:1px solid #d3d3d3;"></canvas>
 <script>
-
-    const numbers = [1, 2, 3, 4, 5];
-    let copy = [];
-    copy.push(...numbers);
-
-    console.log(copy);    // > Array [1, 2, 3, 4, 5]
-    console.log(numbers);
-    numbers.push(10);
-    console.log(copy);    // > Array [1, 2, 3, 4, 5]
-    console.log(numbers);
-
-
+   //  function fibonacci(num) //so fi thu num
+   //  {
+   //      let a=1,b=0,temp;
+   //      while(num>=0)
+   //      {
+   //          temp = a;
+   //          a=a+b;
+   //          b=temp;
+   //          num--;
+   //      }
+   //      return b;
+   //  }
+   // for(let i=0; i<10;i++)
+   // {
+   //     console.log(fibonacci(i));
+   // }
+   // const ctx = document.getElementById('myCanvas').getContext('2d');
+   // ctx.beginPath();
+   // ctx.arc(75,50,50,0,2*Math.PI);
+   // ctx.stroke();
+   // ctx.fillStyle = 'green';
+   // ctx.fill();
+   let phones=[
+       {
+           ma:'MS1',
+           ten:'IPHONE',
+           hang:'APPLE',
+           gia:'12399',
+       },
+       {
+           ma:'MS2',
+           ten:'SAMSUNG',
+           hang:'ANDROID',
+           gia:'244323',
+       },
+       {
+           ma:'MS3',
+           ten:'APHONE',
+           hang:'APPLE',
+           gia:'12399',
+       },
+       {
+           ma:'MS4',
+           ten:'bPHONE',
+           hang:'APPLE',
+           gia:'12399',
+       },
+   ];
+   console.log(phones.sort(function (s,t){
+       var a= s.toLowerCase();
+       var b= t.toLowerCase();
+       if(a>b) return 1;
+       if(a<b) return -1;
+       return 0;
+   }))
 
 </script>
 </body>

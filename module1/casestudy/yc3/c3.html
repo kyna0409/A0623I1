@@ -1,3 +1,44 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<script>-->
+<!--    let numerators = [5, 2, 5];-->
+<!--    let denominators = [6, 3, 4];-->
+<!--    function arrX(numerators, denominators)-->
+<!--    {-->
+<!--        let x = [];-->
+<!--        for(let i=0; i<numerators.length; i++)-->
+<!--        {-->
+<!--            for(let j=0; j<denominators.length; j++)-->
+<!--            {-->
+<!--                x.push(parseFloat(numerators[i]/denominators[j]).toFixed(10));-->
+<!--            }-->
+<!--        }-->
+<!--        return x;-->
+<!--    }-->
+<!--    console.log(arrX(numerators, denominators));-->
+<!--    function maxFraction(x)-->
+<!--    {-->
+<!--        let max = x[0];-->
+<!--        let index=0;-->
+<!--        for(let i=x.length; i>=0; i&#45;&#45;)-->
+<!--        {-->
+<!--            if(x[i]>=max)-->
+<!--            {-->
+<!--                max = x[i];-->
+<!--                index=i;-->
+<!--            }-->
+<!--        }-->
+<!--        return index+1;-->
+<!--    }-->
+<!--    console.log(maxFraction(arrX(numerators,denominators)));-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,36 +47,24 @@
 </head>
 <body>
 <script>
-    let numerators = [5, 2, 5];
-    let denominators = [6, 3, 4];
-    function arrX(numerators, denominators)
-    {
-        let x = [];
-        for(let i=0; i<numerators.length; i++)
-        {
-            for(let j=0; j<denominators.length; j++)
-            {
-                x.push(parseFloat(numerators[i]/denominators[j]).toFixed(10));
-            }
+    const numerators = [5, 2, 5];
+    const denominators = [6, 3, 4];
+
+    let max = 0;
+    let n = 0;
+    let d = 0;
+    let index = 0;
+
+    for (let i = 0; i < numerators.length; i++) {
+        if(numerators[i]/denominators[i] > max){
+            max = numerators[i]/denominators[i];
+            n= numerators[i];
+            d = denominators[i];
+            index = i;
         }
-        return x;
     }
-    console.log(arrX(numerators, denominators));
-    function maxFraction(x)
-    {
-        let max = x[0];
-        let index=0;
-        for(let i=x.length; i>=0; i--)
-        {
-            if(x[i]>=max)
-            {
-                max = x[i];
-                index=i;
-            }
-        }
-        return index+1;
-    }
-    console.log(maxFraction(arrX(numerators,denominators)));
+
+    console.log(`${n}/${d} is max on index ${index}`)
 </script>
 </body>
 </html>

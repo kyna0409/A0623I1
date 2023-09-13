@@ -1,6 +1,6 @@
 package _01_introduction_java.practice;
 
-public class VariableDatatype {
+public class P2_VariableDatatype {
     public static void main(String[] args) {
         int i = 10;// khai bao bien i la kieu int có gia tri la 10
         float f = 20.5f;// khai bao bien f co kieu la float có gia tri la 20.5

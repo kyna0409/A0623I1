@@ -2,7 +2,7 @@ package _01_introduction_java.practice;
 
 import java.util.Scanner;
 
-public class BMICalculator {
+public class P7_BMICalculator {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         double weight, height, bmi;

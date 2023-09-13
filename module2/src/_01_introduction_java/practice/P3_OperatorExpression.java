@@ -2,7 +2,7 @@ package _01_introduction_java.practice;
 
 import java.util.Scanner;
 
-public class OperatorExpression {
+public class P3_OperatorExpression {
     public static void main(String[] args) {
         float width;
         float height;

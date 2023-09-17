@@ -1,6 +1,4 @@
-package _02_loop.exerice.e1_shape;
-
-import java.util.Scanner;
+package _02_loop.exercise.e1_shape;
 
 public class Rectangle {
     public static void main(String[] args) {

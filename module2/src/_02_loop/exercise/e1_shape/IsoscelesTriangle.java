@@ -1,4 +1,4 @@
-package _02_loop.exerice.e1_shape;
+package _02_loop.exercise.e1_shape;
 
 import java.util.Scanner;
 

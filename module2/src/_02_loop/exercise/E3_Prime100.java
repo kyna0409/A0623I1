@@ -1,6 +1,4 @@
-package _02_loop.exerice;
-
-import java.util.Scanner;
+package _02_loop.exercise;
 
 public class E3_Prime100 {
     static boolean check(int n) {

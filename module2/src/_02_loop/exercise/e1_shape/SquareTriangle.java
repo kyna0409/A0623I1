@@ -1,4 +1,4 @@
-package _02_loop.exerice.e1_shape;
+package _02_loop.exercise.e1_shape;
 
 public class SquareTriangle {
     public static void main(String[] args) {

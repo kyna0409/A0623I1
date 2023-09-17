@@ -1,6 +1,5 @@
-package _01_introduction_java.exerice;
+package _01_introduction_java.exercise;
 
-import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.util.Scanner;
 // chuoi muon true thi phai cung ô nhớ vì string la bien doi tuong
 public class E3_CovertMoney {

@@ -1,4 +1,4 @@
-package _02_loop.exerice;
+package _02_loop.exercise;
 
 import java.util.Scanner;
 

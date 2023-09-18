@@ -1,6 +1,6 @@
 package _05_access_modifier.exercise;
 
-public class E1_Circle {
+public class E1_AccessModifier {
     public static void main(String[] args) {
        Circle circle = new Circle();
         System.out.println("ban kinh cua hinh tron la : "+Circle.getRadius()+" \ndien tich cua hinh tron la "+Circle.getArea()+" \nva mau cua hinh tron la "+circle.getColor());

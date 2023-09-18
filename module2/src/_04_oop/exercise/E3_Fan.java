@@ -12,6 +12,7 @@ public class E3_Fan {
         System.out.println("Fan1: "+ f1.toString());
         Fan f2 = new Fan();
         f2.setMedium();
+        System.out.println("Fan1: "+ f2.toString());
 
     }
 }

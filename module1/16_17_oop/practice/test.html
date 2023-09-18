@@ -4,66 +4,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        fieldset{
+            border: 2px red solid;
+        }
+        form{
+            width: 600px;
+            height: 500px;
+            border: 2px black solid;
+        }
+        tr td{
+            border: 1px royalblue solid;
+
+
+        }
+        table {
+            border: 1px royalblue solid;
+            border-collapse: collapse;
+            background-color: lightgoldenrodyellow;
+            margin-left: 50px;
+
+        }
+        table td:nth-child(2)
+        {
+            margin-left: 100px;
+        }
+        div{
+            width: 500px;
+            height: 50px;
+            border: 1px black solid;
+        }
+        header{
+            text-align: center;
+            color: #2e6da4;
+        }
+    </style>
 </head>
 <body>
-<canvas id="myCanvas" width="200" height="120" style="border:1px solid #d3d3d3;"></canvas>
-<script>
-   //  function fibonacci(num) //so fi thu num
-   //  {
-   //      let a=1,b=0,temp;
-   //      while(num>=0)
-   //      {
-   //          temp = a;
-   //          a=a+b;
-   //          b=temp;
-   //          num--;
-   //      }
-   //      return b;
-   //  }
-   // for(let i=0; i<10;i++)
-   // {
-   //     console.log(fibonacci(i));
-   // }
-   // const ctx = document.getElementById('myCanvas').getContext('2d');
-   // ctx.beginPath();
-   // ctx.arc(75,50,50,0,2*Math.PI);
-   // ctx.stroke();
-   // ctx.fillStyle = 'green';
-   // ctx.fill();
-   let phones=[
-       {
-           ma:'MS1',
-           ten:'IPHONE',
-           hang:'APPLE',
-           gia:'12399',
-       },
-       {
-           ma:'MS2',
-           ten:'SAMSUNG',
-           hang:'ANDROID',
-           gia:'244323',
-       },
-       {
-           ma:'MS3',
-           ten:'APHONE',
-           hang:'APPLE',
-           gia:'12399',
-       },
-       {
-           ma:'MS4',
-           ten:'bPHONE',
-           hang:'APPLE',
-           gia:'12399',
-       },
-   ];
-   console.log(phones.sort(function (s,t){
-       var a= s.toLowerCase();
-       var b= t.toLowerCase();
-       if(a>b) return 1;
-       if(a<b) return -1;
-       return 0;
-   }))
+<form>
+    <header><h1>Đăng kí du lịch</h1></header>
+    <table>
+        <tr>
+            <td>Họ và tên</td>
+            <td><input type="text"></td>
 
+        <tr>
+            <td>Địa chỉ</td>
+            <td><input type="text"></td>
+        </tr>
+        <tr>
+            <td>Điện thoại</td>
+            <td><input type="text"></td>
+        </tr>
+        <tr>
+            <td>Khách Việt Nam</td>
+            <td><input type="checkbox" checked></td>
+        </tr>
+        <tr>
+            <td>Chọn tour</td>
+            <td><select>
+                <optgroup label="Miền Bắc">
+                    <option>
+                        Hạ Nội -hạ long -sa pa
+                    </option>
+                    <option>
+                        Hạ Nội -chùa huong - ninh binh
+                    </option>
+                </optgroup>
+            </select></td>
+        </tr>
+        <tr>
+            <td>Phương tiện</td>
+            <td><input type="radio">Máy bay
+                <input type="radio">Xe ô tô
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <fieldset>
+                    <legend>Số lượng đoàn khách</legend>
+                    <label>Người lớn</label><input type="text">
+                    <label>Trẻ em</label><input type="text">
+                </fieldset>
+            </td>
+        </tr>
+        <tr>
+            <td>Ghi chú thêm</td>
+            <td><textarea cols="50" rows="5"></textarea></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center"><input type="button" onclick="out()" value="Đồng ý"></td>
+        </tr>
+        <tr>
+            <td colspan="2" ><div id="result"></div></td>
+        </tr>
+
+    </table>
+</form>
+<script>
+function out()
+{
+    result.innerHTML="<color style='color: red'>Bạn đã đăng kí thành công</color>";
+}
 </script>
 </body>
 </html>

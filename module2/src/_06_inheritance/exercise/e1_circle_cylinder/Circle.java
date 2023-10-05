@@ -12,6 +12,10 @@ public class Circle {
         this.radius=radius;
         this.color=color;
     }
+    public double getPerimeter()
+    {
+        return Math.PI*radius*2;
+    }
     public double getRadius()
     {
         return radius;

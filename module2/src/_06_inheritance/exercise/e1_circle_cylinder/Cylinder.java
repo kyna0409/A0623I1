@@ -15,6 +15,12 @@ public class Cylinder extends Circle{
         super(radius, color);
         this.height=height;
     }
+    public  double getVolume(int radius, int height){
+        double baseArea = getArea();
+        double perimeter = getPerimeter();
+        double volume = perimeter * height + 2 * baseArea;
+        return volume;
+    }
 
     public double getHeight() {
         return height;

@@ -3,7 +3,9 @@ package _12_java_collection_framework.exercise.e1;
 
 import java.util.Objects;
 
-public class Product implements Comparable<Product>{
+import static java.lang.Integer.compare;
+
+public class Product implements Comparable<Product> {
     private String id;
     private String name;
     private int price;
@@ -18,6 +20,10 @@ public class Product implements Comparable<Product>{
         this.name = name;
         this.price = price;
         this.amount = amount;
+    }
+    public int total()
+    {
+        return this.price*this.amount;
     }
 
     public String getId() {
@@ -54,7 +60,7 @@ public class Product implements Comparable<Product>{
 
     @Override
     public int compareTo(Product o) {
-        return Integer.compare(this.getPrice(),o.getPrice());
+        return compare(this.getPrice(), o.getPrice());
     }
 
     @Override

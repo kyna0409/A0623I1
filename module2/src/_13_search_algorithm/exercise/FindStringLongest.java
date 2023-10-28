@@ -13,12 +13,12 @@ public class FindStringLongest {
         LinkedList<Character> max = new LinkedList<>();
 
         // Tìm chuỗi tăng dần có độ dài lớn nhất
-        for (int i = 0; i < string.length(); i++) { //Vòng lặp bên ngoài
+        for (int i = 0; i < string.length(); i++) { //O(n^2)
             //Khai báo một linked list trung gian các kí tự của chuỗi tăng dần
             LinkedList<Character> list = new LinkedList<>();
             //thêm kí tự thứ i vào trong list
             list.add(string.charAt(i));
-            for (int j = i + 1; j < string.length(); j++) { //vòng lặp bên trong
+            for (int j = i + 1; j < string.length(); j++) {
                 //Kiểm tra kí tự tiếp theo có lớn hơn kí tự cuối cùng trong list hay không
                 if (string.charAt(j) > list.getLast()) {
                     //Nếu có thì thêm vào trong list
@@ -35,21 +35,10 @@ public class FindStringLongest {
         }
 
         // Hiển thị chuỗi tăng dần dài nhất
-        for (Character ch: max) { // 1 vòng lặp
-            System.out.print(ch); // 1 câu lệnh
+        for (Character ch: max) {
+            System.out.print(ch);
         }
         System.out.println();
     }
 
-/*********************************************************************************
- * 	Tính toán độ phức tạp của bài toán:                                           *
- * 	1 vòng lặp bên ngoài = n;                                                     *
- * 	1 vòng lặp bên trong = n - 1;                                                 *
- *  1 câu lệnh = 1                                                                *
- * 	1 vòng lặp * 1 câu lệnh = 1;                                                  *
- *  T(n) = (n * (n - 1)) + (1 + 1);                                               *
- *  T(n) = O(n^2) + O(n);                                                         *
- * 	T(n) = O(n^2);                                                                *
- * 	=> Độ phức tạp bài toán này là O(n^2)                                         *
- *********************************************************************************/
 }

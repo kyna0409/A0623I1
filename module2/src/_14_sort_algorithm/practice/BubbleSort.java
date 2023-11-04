@@ -1,4 +1,4 @@
-package _14_arrange_algorithm.practice;
+package _14_sort_algorithm.practice;
 
 import java.util.Scanner;
 

@@ -1,8 +1,12 @@
-package _12_java_collection_framework.exercise.e1;
+package _12_java_collection_framework.exercise.e1.product;
+
 
 import java.util.*;
 
-public class ProductManager implements Comparator<Product> {
+import static java.util.Collections.reverseOrder;
+import static java.util.Collections.sort;
+
+public class ProductManager  {
     private List<Product> products;
 
     public ProductManager() {
@@ -67,7 +71,7 @@ public class ProductManager implements Comparator<Product> {
     }
     public  void sortProductDescending()
     {
-        Collections.sort(products,reversed());
+        Collections.sort(products,reverseOrder());
     }
     public void displayProcduct()
     {
@@ -97,10 +101,11 @@ public class ProductManager implements Comparator<Product> {
         }
 
     }
+//    public String id(){
+//        int id =Integer.parseInt(products.get(products.size()-2).getId())+1;
+//        return String.valueOf(id);
+//    }
 
 
-    @Override
-    public int compare(Product o1, Product o2) {
-        return o1.getPrice()-o2.getPrice();
-    }
+
 }

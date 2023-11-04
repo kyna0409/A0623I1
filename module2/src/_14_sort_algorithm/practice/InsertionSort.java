@@ -1,4 +1,4 @@
-package _14_arrange_algorithm.practice;
+package _14_sort_algorithm.practice;
 
 public class InsertionSort {
     static double[] list = {1, 9, 4.5, 6.6, 5.7, -4.5};

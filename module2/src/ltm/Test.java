@@ -1,9 +1,23 @@
 package ltm;
 
-import java.util.LinkedList;
+import java.util.*;
 
 public class Test {
     public static void main(String[] args) {
+        Set<String> hs = new HashSet<String>();
+
+        hs.add("Computer");
+        hs.add("Programming");
+        hs.add("Computer");
+        hs.add("Networks");
+        hs.add("Network");
+        hs.add("Security");
+
+        Set<String> is = new TreeSet<String>(hs);
+        System.out.println(is);
+
+
+
 
     }
     public static java.util.LinkedList<String> join_two_linked_lists (java.util.LinkedList<String> linkedList1, java.util.LinkedList<String> linkedList2) {
@@ -35,6 +49,30 @@ public class Test {
             }
 
         }
+    }
+    public static void compare_two_linked_lists (java.util.LinkedList<String> list1, java.util.LinkedList<String> list2) {
+        LinkedList<String> result = new LinkedList<>();
+
+        // Ensure both lists have the same length
+        int minLength = Math.min(list1.size(), list2.size());
+
+        for (int i = 0; i < minLength; i++) {
+            if (list1.get(i).equals(list2.get(i))) {
+                result.add("Yes");
+            } else {
+                result.add("No");
+            }
+        }
+
+        // If one list is longer than the other, fill the result with "No"
+        int maxLength = Math.max(list1.size(), list2.size());
+        for (int i = minLength; i < maxLength; i++) {
+            result.add("No");
+        }
+        for (int i = 0; i < result.size(); i++) {
+            System.out.println(result.get(i));
+        }
+
     }
 
 }

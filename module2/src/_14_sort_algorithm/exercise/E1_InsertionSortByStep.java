@@ -1,4 +1,4 @@
-package _14_arrange_algorithm.exercise;
+package _14_sort_algorithm.exercise;
 
 public class E1_InsertionSortByStep {
     public static void main(String[] args) {

@@ -1,7 +1,7 @@
-package _12_java_collection_framework.exercise.e1;
+package _12_java_collection_framework.exercise.e1.Product_mvc.model;
 
 
-import java.util.Objects;
+import java.util.Comparator;
 
 import static java.lang.Integer.compare;
 
@@ -30,8 +30,9 @@ public class Product implements Comparable<Product> {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId(String id1) {
+        int id2 = Integer.parseInt(id1)+1;
+        this.id = String.valueOf(id2);
     }
 
     public String getName() {
@@ -58,10 +59,6 @@ public class Product implements Comparable<Product> {
         this.amount = amount;
     }
 
-    @Override
-    public int compareTo(Product o) {
-        return compare(this.getPrice(), o.getPrice());
-    }
 
     @Override
     public String toString() {
@@ -70,6 +67,13 @@ public class Product implements Comparable<Product> {
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 ", amount=" + amount +
+                ", total=" + total()+
                 '}';
+    }
+
+
+    @Override
+    public int compareTo(Product o) {
+        return this.getPrice()-o.getPrice();
     }
 }

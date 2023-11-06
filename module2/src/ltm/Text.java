@@ -1,4 +1,4 @@
-package _16_IO_TextFile.exercise._e2_readfile;
+package ltm;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;

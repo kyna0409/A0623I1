@@ -1,4 +1,4 @@
-package _16_IO_TextFile.exercise._e2_readfile;
+package _16_IO_TextFile.exercise._e2_readfile1;
 
 public class Country {
     private int id ;

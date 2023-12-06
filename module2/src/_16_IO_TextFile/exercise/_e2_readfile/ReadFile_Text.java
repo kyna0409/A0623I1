@@ -13,7 +13,7 @@ public class ReadFile_Text {
         BufferedReader br = null;
         try{
             String line = " ";
-            br = new BufferedReader(new FileReader("src\\_16_IO_TextFile\\exercise\\_e2_readfile\\text.txt"));
+            br = new BufferedReader(new FileReader("D:\\LT\\A0623I1\\module2\\src\\_16_IO_TextFile\\exercise\\_e2_readfile\\text.csv"));
             while ((line = br.readLine())!=null)
             {
                 print(parse(line));

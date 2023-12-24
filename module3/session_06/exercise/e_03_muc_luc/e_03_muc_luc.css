@@ -1,0 +1,22 @@
+div{
+    border: 1px black solid;
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    text-transform: uppercase;
+}
+ul ,li{
+    list-style: none;
+}
+header{
+    text-align: center;
+    border: 1px solid black;
+
+}
+#bia{
+    display: block;
+}
+#content{
+    text-align: center;
+}

@@ -1,0 +1,22 @@
+p{
+    text-indent: 50px;/* thut dong dau tien*/
+    text-align: justify;
+   font-size: 15px;
+}
+h1{
+    font-family:  "Times New Roman", Times, serif;
+    line-height: 1px;
+    font-weight: lighter;
+
+}
+main{
+    width:48% ;
+    border: 1px solid black ;
+}
+a{
+    text-decoration: blue;
+}
+#blues {
+    text-decoration: none;
+    color: #32a4e7;
+}

@@ -1,0 +1,19 @@
+*{
+    box-sizing: border-box;
+}
+html{
+    font-family: Times New Roman, Times, serif;
+}
+.col> img{
+    height: 200px;
+    width: 270px;
+}
+.col{
+    height: 250px;
+    width: 270px;
+    padding: 0;
+    display: flow;
+}
+.col label{
+    width: 270px;
+}

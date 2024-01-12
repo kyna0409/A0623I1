@@ -1,0 +1,20 @@
+*{
+    box-sizing: border-box;
+}
+html{
+    font-family: Times New Roman, Times, serif;
+}
+.aside{
+    border-bottom: 1px solid black;
+}
+.aside ul{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    list-style: none;
+}
+.aside ul li >a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}

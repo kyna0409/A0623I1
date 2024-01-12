@@ -252,9 +252,86 @@ END;
 //
 DELIMITER ;
 
+select datediff(ngay_ket_thuc,ngay_lam_hop_dong) from hop_dong where ma_hop_dong =1;
 -- 26.	Tạo Trigger có tên tr_cap_nhat_hop_dong khi cập nhật ngày kết thúc hợp đồng, cần kiểm tra xem thời gian cập nhật có phù hợp hay không, với quy tắc sau: Ngày kết thúc hợp đồng phải lớn hơn ngày làm hợp đồng ít nhất là 2 ngày. Nếu dữ liệu hợp lệ thì cho phép cập nhật, nếu dữ liệu không hợp lệ thì in ra thông báo “Ngày kết thúc hợp đồng phải lớn hơn ngày làm hợp đồng ít nhất là 2 ngày” trên console của database.
 -- Lưu ý: Đối với MySQL thì sử dụng SIGNAL hoặc ghi log thay cho việc ghi ở console.
+ delimiter //
+ create trigger tr_cap_nhat_hop_dong
+ before update on hop_dong
+ for each row 
+ begin
+ declare t_ngay_lam_hop_dong datetime;
+ declare t_ngay_ket_thuc datetime;
+  -- Lấy ngày làm hợp đồng và ngày kết thúc hợp đồng trong ban ghi new
+ select new.ngay_lam_hop_dong into t_ngay_lam_hop_dong;
+ select new.ngay_ket_thuc into t_ngay_ket_thuc;
+if datediff(t_ngay_ket_thuc,t_ngay_lam_hop_dong)< 2 then 
+-- use signal
+signal sqlstate '45000'
+set message_text ='Ngày kết thúc hợp đồng phải lớn hơn ngày làm hợp đồng ít nhất là 2 ngày';
+end if ;
+  -- Hoặc nếu muốn ghi log
+        -- INSERT INTO log_table (message) VALUES ('Ngày kết thúc hợp đồng phải lớn hơn ngày làm hợp đồng ít nhất là 2 ngày');
+ -- Hủy bỏ cập nhật
+ signal sqlstate '45000' set mysql_errno = 1644, message_text='Ngày kết thúc hợp đồng phải lớn hơn ngày làm hợp đồng ít nhất là 2 ngày';
+ end //
+ delimiter ;
+ drop trigger tr_cap_nhat_hop_dong;
+ select*from information_schema.triggers where trigger_schema ='tr_cap_nhat_hop_dong';
 -- 27.	Tạo Function thực hiện yêu cầu sau:
 -- a.	Tạo Function func_dem_dich_vu: Đếm các dịch vụ đã được sử dụng với tổng tiền là > 2.000.000 VNĐ.
+DELIMITER //
+
+CREATE FUNCTION func_dem_dich_vu(so_tien INT)
+RETURNS INT
+DETERMINISTIC
+READS SQL DATA
+BEGIN
+    DECLARE counter INT;
+
+    SELECT COUNT(*) INTO counter
+    FROM (
+        SELECT D.ma_dich_vu,D.ten_dich_vu
+        FROM dich_vu D
+        JOIN hop_dong H ON H.ma_dich_vu = D.ma_dich_vu
+        GROUP BY D.ma_dich_vu
+        HAVING SUM(D.chi_phi_thue) > so_tien
+    ) AS t;
+
+    RETURN counter;
+END //
+
+DELIMITER ;
+
+select func_dem_dich_vu(2000000);
+
+
+-- example
+delimiter //
+create function sum_a_b( a int, b int)
+returns int
+deterministic
+reads sql data
+begin
+declare sum int;
+set sum = a+b;
+return sum;
+end //
+delimiter ;
+select sum_a_b(5,6);
 -- b.	Tạo Function func_tinh_thoi_gian_hop_dong: Tính khoảng thời gian dài nhất tính từ lúc bắt đầu làm hợp đồng đến lúc kết thúc hợp đồng mà khách hàng đã thực hiện thuê dịch vụ (lưu ý chỉ xét các khoảng thời gian dựa vào từng lần làm hợp đồng thuê dịch vụ, không xét trên toàn bộ các lần làm hợp đồng). Mã của khách hàng được truyền vào như là 1 tham số của function này.
 -- 28.	Tạo Stored Procedure sp_xoa_dich_vu_va_hd_room để tìm các dịch vụ được thuê bởi khách hàng với loại dịch vụ là “Room” từ đầu năm 2015 đến hết năm 2019 để xóa thông tin của các dịch vụ đó (tức là xóa các bảng ghi trong bảng dich_vu) và xóa những hop_dong sử dụng dịch vụ liên quan (tức là phải xóa những bản gi trong bảng hop_dong) và những bản liên quan khác.
+delimiter //
+create procedure sp_xoa_dich_vu_va_hd_room (in p_ma_loai_dich_vu int )
+begin
+select * from hop_dong_chi_tiet HDCT 
+right join hop_dong H on H.ma_hop_dong = HDCT.ma_hop_dong
+join dich_vu D on D.ma_dich_vu = H.ma_dich_vu
+join loai_dich_vu LDV on LDV.ma_loai_dich_vu = D.ma_loai_dich_vu
+where LDV.ma_loai_dich_vu = p_ma_loai_dich_vu and (H.ngay_lam_hop_dong between '2015-01-01' and '2019-12-31');
+end //  
+delimiter ;
+call sp_xoa_dich_vu_va_hd_room (3 );
+
+
+

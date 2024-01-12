@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="./img/2023_Facebook_icon.svg.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+          integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="e_02_facebook.css">
+    <title>Facebook</title>
+</head>
+<body>
+<nav>
+    <div class="nav-left">
+        <img src="img/2023_Facebook_icon.svg.png" alt="Logo">
+        <input type="text" name="" id="" placeholder="&#xf002; Tìm kiếm trên facebook"
+               style="font-family:Arial, FontAwesome">
+    </div>
+    <div class="nav-middle">
+        <a href="#" class="active">
+            <i class="fa fa-home"></i>
+        </a>
+        <a href="#">
+            <i class="fa fa-user-friends"></i>
+        </a>
+        <a href="#">
+            <i class="fa fa-flag"></i>
+        </a>
+        <a href="#">
+            <i class="fa fa-play-circle"></i>
+        </a>
+        <a href="#">
+            <i class="fa fa-users"></i>
+        </a>
+    </div>
+    <div class="nav-right">
+        <a href="#">
+            <i class="fa fa-list"></i>
+        </a>
+
+        <a href="#">
+            <i class="fab fa-facebook-messenger"></i>
+        </a>
+
+        <a href="#">
+            <i class="fa fa-bell"></i>
+        </a>
+        <div class="profile">
+            <img src="img/414484312_902172287939355_2060020054970429364_n.jpg"/>
+        </div>
+
+    </div>
+</nav>
+<div class="container">
+    <div class="left-panel">
+        <div class="above">
+            <ul>
+                <li>
+                    <div class="profile">
+                        <img src="img/414484312_902172287939355_2060020054970429364_n.jpg"/>
+                    </div>
+                    <p class="name">Thu Hòa</p>
+                </li>
+                <li>
+                    <img src="img/friend_10703157.png"/>
+                    <p class="name">Friends</p>
+                </li>
+                <li>
+                    <img src="img/youtube_747888.png"/>
+                    <p class="name">Videos</p>
+                </li>
+                <li>
+                    <img src="img/assistance_7605270.png"/>
+                    <p class="name">Pages</p>
+                </li>
+                <li>
+                    <img src="img/users_811885.png"/>
+                    <p class="name">Groups</p>
+                </li>
+                <li>
+                    <img src="img/bookmark.png"/>
+                    <p class="name">Bookmark</p>
+                </li>
+                <li>
+                    <img src="img/facebook-messenger-icon.webp"/>
+                    <p class="name">Inbox</p>
+                </li>
+                <li>
+                    <img src="../e_03_tao_layout_rwd/img/star.png"/>
+                    <p class="name">Events</p>
+                </li>
+                <div id="hide_less">
+                    <li>
+                        <img src="img/megaphone.png"/>
+                        <p class="name">Ads</p>
+                    </li>
+                    <li>
+                        <img src="img/handshake.png"/>
+                        <p class="name">Offers</p>
+                    </li>
+                    <li>
+                        <img src="img/history.png"/>
+                        <p class="name">History</p>
+                    </li>
+                    <li>
+                        <img src="img/job.png"/>
+                        <p class="name">Jobs</p>
+                    </li>
+                    <li>
+                        <img src="img/star (1).png"/>
+                        <p class="name">Favourites</p>
+                    </li>
+                    <li>
+                        <img src="img/match.png"/>
+                        <p class="name">Dating</p>
+                    </li>
+                    <li>
+                        <img src="img/blood.png"/>
+                        <p class="name">Blood Donation</p>
+                    </li>
+                    <li>
+                        <img src="img/diagram.png"/>
+                        <p class="name">weather forecast</p>
+                    </li>
+                </div>
+                <div>
+                    <li>
+                        <input type="button" id="but_see_more" value="See More" onclick="seeMore()">
+                    </li>
+                </div>
+            </ul>
+        </div>
+        <hr></hr>
+        <div class="under" onmouseover="divUnderOver()" onmouseout="divUnderOut()">
+            <ul>
+                <li>
+                    <p>Lối tắt của bạn</p>
+                    <a href="#" id="a_chinh_sua" style="display: none">Chỉnh sửa</a>
+                </li>
+                <li>
+                    <img src="img/SgCnS9Z5jShRiDIGDyfa.jpg"/>
+                    <p class="name">Tuyển dụng CNTT Đà Nẵng</p>
+                </li>
+                <li>
+                    <img src="img/Chien_thang_ung_thu_kho_ma_de.webp"/>
+                    <p class="name">Cuộc Chiến Ung Thư Thầm Lặng</p>
+                </li>
+                <li>
+                    <img src="img/unnamed.png"/>
+                    <p class="name">Cooking Madness - A Chef's Game</p>
+                </li>
+                <li>
+                    <img src="img/header.jpg"/>
+                    <p class="name">Dragon Awaken</p>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Advance</a>
+            <a href="#">More</a>
+            <p>Meta © 2023</p>
+        </div>
+    </div>
+    <div class="middle-panel">
+       <div class="middle-panel1">
+           <div class="but-story-section">
+               <div class="but-story">
+                   <img src="img/fairytale.png"/>
+                   <p>Story</p>
+               </div>
+               <div class="but-reel">
+                   <img src="img/reel.png" />
+                   <p>Reels</p>
+               </div>
+           </div>
+           <div class="story_section">
+               <div class="story create">
+                   <div class="dp-image">
+                       <img src="./img/414484312_902172287939355_2060020054970429364_n.jpg" alt="Profile pic">
+                   </div>
+                   <span class="dp-container">
+                        <i class="fa fa-plus"></i>
+                    </span>
+                   <span class="name">Create Story</span>
+               </div>
+
+               <div class="story">
+                   <img src="img/414484364_905206897635894_2142114160387084778_n.jpg" alt="ThuHoa'story"/>
+                   <div class="dp-container">
+                       <img src="img/414484312_902172287939355_2060020054970429364_n.jpg"/>
+                   </div>
+                   <p class="name">Thu Hòa</p>
+               </div>
+               <div class="story">
+                   <img src="img/414484364_905206897635894_2142114160387084778_n.jpg" alt="ThuHoa'story"/>
+                   <div class="dp-container">
+                       <img src="img/414484312_902172287939355_2060020054970429364_n.jpg"/>
+                   </div>
+                   <p class="name">Thu Hòa</p>
+               </div>
+               <div class="story">
+                   <img src="img/414484364_905206897635894_2142114160387084778_n.jpg" alt="ThuHoa'story"/>
+                   <div class="dp-container">
+                       <img src="img/414484312_902172287939355_2060020054970429364_n.jpg"/>
+                   </div>
+                   <p class="name">Thu Hòa</p>
+               </div>
+           </div>
+       </div>
+    </div>
+    <div class="right-panel"></div>
+</div>
+<script src="e_02_facebook.js">
+
+</script>
+</body>
+</html>

@@ -5,45 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1e12b86-9d8a-49ba-b320-4a4dcc4e3b57" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../../module2/src/ServerTimeServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_09/exercise/e_01_ProductDiscountCalculator/src/main/java/DiscountServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_09/practice/convert/src/main/java/ConverterServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_09/practice/p1_show_time_system/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_09/practice/p1_show_time_system/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_09/practice/p1_show_time_system/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_09/practice/p1_show_time_system/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_09/practice/p1_show_time_system/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_09/practice/p1_show_time_system/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_09/practice/p1_show_time_system/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_09/practice/p1_show_time_system/src/main/java/com/example/p1_show_time_system/HelloServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_09/practice/p1_show_time_system/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_09/practice/p1_show_time_system/src/main/webapp/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_09/practice/p2_login/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_09/practice/p2_login/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_09/practice/p2_login/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_09/practice/p2_login/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_09/practice/p2_login/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_09/practice/p2_login/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_09/practice/p2_login/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_09/practice/p2_login/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_09/practice/p2_login/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_09/practice/p2_login/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_09/practice/p2_login/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_09/practice/p2_login/src/main/java/LoginServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_09/practice/p2_login/src/main/java/com/example/p2_login/HelloServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_09/practice/p2_login/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_09/practice/p2_login/src/main/webapp/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_09/practice/simple_dictionary/src/main/java/TranslationServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_10/exercise/list_customer/src/main/java/controller/CustomerServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_10/exercise/list_customer/src/main/java/model/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_10/exercise/list_customer/src/main/java/repository/ICustomerRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_10/exercise/list_customer/src/main/java/repository/impl/CustomerRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_10/exercise/list_customer/src/main/java/service/ICustomerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_10/exercise/list_customer/src/main/java/service/impl/CustomerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_10/exercise/list_customer/src/main/webapp/view/list.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_10/practice/convert/src/main/webapp/converter.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../session_10/practice/translation/src/main/webapp/dictionary.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../CaseStudy-Database/furama.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../../CaseStudy-Database/furama.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../session_10/exercise/calculator/src/main/java/com/example/calculator/calculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,7 +183,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1705392819712</updated>
-      <workItem from="1705392820715" duration="17901000" />
+      <workItem from="1705392820715" duration="18515000" />
     </task>
     <servers />
   </component>
